@@ -9,8 +9,6 @@
 
 namespace BOOKSTORE_PROJECT_PO.Models
 {
-    using System;
-    using System.Collections.Generic;
     
     public partial class Authors
     {

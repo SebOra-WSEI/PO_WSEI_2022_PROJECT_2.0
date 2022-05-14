@@ -9,14 +9,13 @@
 
 namespace BOOKSTORE_PROJECT_PO.Models
 {
-    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookstoreDBEntities : DbContext
+    public partial class BookstoreDBEntities1 : DbContext
     {
-        public BookstoreDBEntities()
-            : base("name=BookstoreDBEntities")
+        public BookstoreDBEntities1()
+            : base("name=BookstoreDBEntities1")
         {
         }
     

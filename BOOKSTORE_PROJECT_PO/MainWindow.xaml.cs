@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BOOKSTORE_PROJECT_PO.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace BOOKSTORE_PROJECT_PO
         public MainWindow()
         {
             InitializeComponent();
+
+            BookstoreDBEntities1 db = new BookstoreDBEntities1();
+
+            var authors = from a in db.Authors
+                          select a;
+
+            foreach( var item in authors)
+            {
+                Console.WriteLine(item.FirstName);
+            }
         }
     }
 }
