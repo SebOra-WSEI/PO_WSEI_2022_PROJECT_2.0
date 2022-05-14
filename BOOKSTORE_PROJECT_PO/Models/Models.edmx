@@ -25,14 +25,14 @@
           <Property Name="StatusId" Type="int" />
           <Property Name="CustomerId" Type="int" />
         </EntityType>
-        <EntityType Name="City">
+        <EntityType Name="Cities">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CityName" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <EntityType Name="Customer">
+        <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -50,7 +50,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Books__AuthorId__619B8048">
+        <Association Name="FK__Books__AuthorId__245D67DE">
           <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
           <End Role="Books" Type="Self.Books" Multiplicity="*" />
           <ReferentialConstraint>
@@ -62,7 +62,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Books__StatusId__628FA481">
+        <Association Name="FK__Books__CustomerI__2645B050">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__StatusId__25518C17">
           <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
           <End Role="Books" Type="Self.Books" Multiplicity="*" />
           <ReferentialConstraint>
@@ -74,14 +86,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Customer__CityId__66603565">
-          <End Role="City" Type="Self.City" Multiplicity="0..1" />
-          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+        <Association Name="FK__Customers__CityI__2180FB33">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="City">
+            <Principal Role="Cities">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Customer">
+            <Dependent Role="Customers">
               <PropertyRef Name="CityId" />
             </Dependent>
           </ReferentialConstraint>
@@ -89,20 +101,24 @@
         <EntityContainer Name="BookstoreDBModelStoreContainer">
           <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Books__AuthorId__619B8048" Association="Self.FK__Books__AuthorId__619B8048">
+          <AssociationSet Name="FK__Books__AuthorId__245D67DE" Association="Self.FK__Books__AuthorId__245D67DE">
             <End Role="Authors" EntitySet="Authors" />
             <End Role="Books" EntitySet="Books" />
           </AssociationSet>
-          <AssociationSet Name="FK__Books__StatusId__628FA481" Association="Self.FK__Books__StatusId__628FA481">
+          <AssociationSet Name="FK__Books__CustomerI__2645B050" Association="Self.FK__Books__CustomerI__2645B050">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__StatusId__25518C17" Association="Self.FK__Books__StatusId__25518C17">
             <End Role="Status" EntitySet="Status" />
             <End Role="Books" EntitySet="Books" />
           </AssociationSet>
-          <AssociationSet Name="FK__Customer__CityId__66603565" Association="Self.FK__Customer__CityId__66603565">
-            <End Role="City" EntitySet="City" />
-            <End Role="Customer" EntitySet="Customer" />
+          <AssociationSet Name="FK__Customers__CityI__2180FB33" Association="Self.FK__Customers__CityI__2180FB33">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Customers" EntitySet="Customers" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -117,7 +133,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Books" Relationship="Self.FK__Books__AuthorId__619B8048" FromRole="Authors" ToRole="Books" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Books__AuthorId__245D67DE" FromRole="Authors" ToRole="Books" />
         </EntityType>
         <EntityType Name="Books">
           <Key>
@@ -130,18 +146,19 @@
           <Property Name="AuthorId" Type="Int32" />
           <Property Name="StatusId" Type="Int32" />
           <Property Name="CustomerId" Type="Int32" />
-          <NavigationProperty Name="Authors" Relationship="Self.FK__Books__AuthorId__619B8048" FromRole="Books" ToRole="Authors" />
-          <NavigationProperty Name="Status" Relationship="Self.FK__Books__StatusId__628FA481" FromRole="Books" ToRole="Status" />
+          <NavigationProperty Name="Authors" Relationship="Self.FK__Books__AuthorId__245D67DE" FromRole="Books" ToRole="Authors" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Books__CustomerI__2645B050" FromRole="Books" ToRole="Customers" />
+          <NavigationProperty Name="Status" Relationship="Self.FK__Books__StatusId__25518C17" FromRole="Books" ToRole="Status" />
         </EntityType>
-        <EntityType Name="City">
+        <EntityType Name="Cities">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__Customer__CityId__66603565" FromRole="City" ToRole="Customer" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Customers__CityI__2180FB33" FromRole="Cities" ToRole="Customers" />
         </EntityType>
-        <EntityType Name="Customer">
+        <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -151,7 +168,8 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OrderQuantity" Type="Int32" Nullable="false" />
           <Property Name="CityId" Type="Int32" />
-          <NavigationProperty Name="City" Relationship="Self.FK__Customer__CityId__66603565" FromRole="Customer" ToRole="City" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Books__CustomerI__2645B050" FromRole="Customers" ToRole="Books" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__Customers__CityI__2180FB33" FromRole="Customers" ToRole="Cities" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -159,9 +177,9 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Books" Relationship="Self.FK__Books__StatusId__628FA481" FromRole="Status" ToRole="Books" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Books__StatusId__25518C17" FromRole="Status" ToRole="Books" />
         </EntityType>
-        <Association Name="FK__Books__AuthorId__619B8048">
+        <Association Name="FK__Books__AuthorId__245D67DE">
           <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
           <End Role="Books" Type="Self.Books" Multiplicity="*" />
           <ReferentialConstraint>
@@ -173,7 +191,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Books__StatusId__628FA481">
+        <Association Name="FK__Books__CustomerI__2645B050">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__StatusId__25518C17">
           <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
           <End Role="Books" Type="Self.Books" Multiplicity="*" />
           <ReferentialConstraint>
@@ -185,35 +215,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Customer__CityId__66603565">
-          <End Role="City" Type="Self.City" Multiplicity="0..1" />
-          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+        <Association Name="FK__Customers__CityI__2180FB33">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="City">
+            <Principal Role="Cities">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Customer">
+            <Dependent Role="Customers">
               <PropertyRef Name="CityId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BookstoreDBEntitiess" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BookstoreDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Authors" EntityType="Self.Authors" />
           <EntitySet Name="Books" EntityType="Self.Books" />
-          <EntitySet Name="City" EntityType="Self.City" />
-          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
           <EntitySet Name="Status" EntityType="Self.Status" />
-          <AssociationSet Name="FK__Books__AuthorId__619B8048" Association="Self.FK__Books__AuthorId__619B8048">
+          <AssociationSet Name="FK__Books__AuthorId__245D67DE" Association="Self.FK__Books__AuthorId__245D67DE">
             <End Role="Authors" EntitySet="Authors" />
             <End Role="Books" EntitySet="Books" />
           </AssociationSet>
-          <AssociationSet Name="FK__Books__StatusId__628FA481" Association="Self.FK__Books__StatusId__628FA481">
+          <AssociationSet Name="FK__Books__CustomerI__2645B050" Association="Self.FK__Books__CustomerI__2645B050">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__StatusId__25518C17" Association="Self.FK__Books__StatusId__25518C17">
             <End Role="Status" EntitySet="Status" />
             <End Role="Books" EntitySet="Books" />
           </AssociationSet>
-          <AssociationSet Name="FK__Customer__CityId__66603565" Association="Self.FK__Customer__CityId__66603565">
-            <End Role="City" EntitySet="City" />
-            <End Role="Customer" EntitySet="Customer" />
+          <AssociationSet Name="FK__Customers__CityI__2180FB33" Association="Self.FK__Customers__CityI__2180FB33">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Customers" EntitySet="Customers" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -221,7 +255,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BookstoreDBModelStoreContainer" CdmEntityContainer="BookstoreDBEntitiess">
+        <EntityContainerMapping StorageEntityContainer="BookstoreDBModelStoreContainer" CdmEntityContainer="BookstoreDBEntities">
           <EntitySetMapping Name="Authors">
             <EntityTypeMapping TypeName="BookstoreDBModel.Authors">
               <MappingFragment StoreEntitySet="Authors">
@@ -244,17 +278,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="City">
-            <EntityTypeMapping TypeName="BookstoreDBModel.City">
-              <MappingFragment StoreEntitySet="City">
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="BookstoreDBModel.Cities">
+              <MappingFragment StoreEntitySet="Cities">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Customer">
-            <EntityTypeMapping TypeName="BookstoreDBModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="BookstoreDBModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

@@ -23,7 +23,7 @@ namespace BOOKSTORE_PROJECT_PO
         public MainWindow()
         {
             InitializeComponent();
-            BookstoreDBEntitiess db = new BookstoreDBEntitiess();
+            BookstoreDBEntities db = new BookstoreDBEntities();
 
             var authors = from _author in db.Authors
                           select _author;
@@ -31,10 +31,10 @@ namespace BOOKSTORE_PROJECT_PO
             var books = from _books in db.Books
                         select _books;
 
-            var city = from _city in db.City
+            var city = from _city in db.Cities
                        select _city;
 
-            var customers = from _customer in db.Books
+            var customers = from _customer in db.Customers
                             select _customer;
 
             var status = from _status in db.Status

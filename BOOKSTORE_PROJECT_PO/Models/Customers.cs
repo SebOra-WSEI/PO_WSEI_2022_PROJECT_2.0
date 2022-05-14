@@ -9,18 +9,24 @@
 
 namespace BOOKSTORE_PROJECT_PO.Models
 {
+    using System;
     using System.Collections.Generic;
     
-    public partial class City
+    public partial class Customers
     {
-        public City()
+        public Customers()
         {
-            this.Customer = new HashSet<Customer>();
+            this.Books = new HashSet<Books>();
         }
     
         public int ID { get; set; }
-        public string CityName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public int OrderQuantity { get; set; }
+        public Nullable<int> CityId { get; set; }
     
-        public virtual ICollection<Customer> Customer { get; set; }
+        public virtual ICollection<Books> Books { get; set; }
+        public virtual Cities Cities { get; set; }
     }
 }

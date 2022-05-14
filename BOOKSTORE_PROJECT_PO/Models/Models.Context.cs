@@ -12,10 +12,10 @@ namespace BOOKSTORE_PROJECT_PO.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookstoreDBEntitiess : DbContext
+    public partial class BookstoreDBEntities : DbContext
     {
-        public BookstoreDBEntitiess()
-            : base("name=BookstoreDBEntitiess")
+        public BookstoreDBEntities()
+            : base("name=BookstoreDBEntities")
         {
         }
     
@@ -26,8 +26,8 @@ namespace BOOKSTORE_PROJECT_PO.Models
     
         public DbSet<Authors> Authors { get; set; }
         public DbSet<Books> Books { get; set; }
-        public DbSet<City> City { get; set; }
-        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Cities> Cities { get; set; }
+        public DbSet<Customers> Customers { get; set; }
         public DbSet<Status> Status { get; set; }
     }
 }
