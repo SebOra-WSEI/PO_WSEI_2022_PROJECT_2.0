@@ -7,8 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BOOKSTORE_PROJECT_PO.Models
+namespace BOOKSTORE_PROJECT_PO.Models.Author
 {
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     

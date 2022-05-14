@@ -87,22 +87,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\Author.Context.cs">
+    <Compile Include="Models\Author\Author.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Author.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Author.cs">
+    <Compile Include="Models\Author\Author.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Author.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Author.Designer.cs">
+    <Compile Include="Models\Author\Author.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Author.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Authors.cs">
+    <Compile Include="Models\Author\Authors.cs">
       <DependentUpon>Author.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -128,11 +128,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Author.edmx">
+    <EntityDeploy Include="Models\Author\Author.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Author.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Author.edmx.diagram">
+    <None Include="Models\Author\Author.edmx.diagram">
       <DependentUpon>Author.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -145,12 +145,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Author.Context.tt">
+    <Content Include="Models\Author\Author.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Author.edmx</DependentUpon>
       <LastGenOutput>Author.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Author.tt">
+    <Content Include="Models\Author\Author.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Author.edmx</DependentUpon>
       <LastGenOutput>Author.cs</LastGenOutput>

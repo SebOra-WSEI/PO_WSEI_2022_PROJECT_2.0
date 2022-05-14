@@ -7,8 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BOOKSTORE_PROJECT_PO.Models
+namespace BOOKSTORE_PROJECT_PO.Models.Author
 {
+    using System;
+    using System.Collections.Generic;
     
     public partial class Authors
     {

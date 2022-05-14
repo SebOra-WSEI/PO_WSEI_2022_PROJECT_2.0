@@ -1,6 +1,5 @@
-﻿using BOOKSTORE_PROJECT_PO.Models;
+﻿using BOOKSTORE_PROJECT_PO.Models.Author;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
