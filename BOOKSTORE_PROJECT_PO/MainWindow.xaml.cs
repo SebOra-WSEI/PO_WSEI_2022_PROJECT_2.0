@@ -1,4 +1,4 @@
-﻿using BOOKSTORE_PROJECT_PO.Models.Author;
+﻿using BOOKSTORE_PROJECT_PO.Models;
 using System;
 using System.Linq;
 using System.Text;
@@ -23,16 +23,29 @@ namespace BOOKSTORE_PROJECT_PO
         public MainWindow()
         {
             InitializeComponent();
+            BookstoreDBEntitiess db = new BookstoreDBEntitiess();
 
-            BookstoreDBEntities1 db = new BookstoreDBEntities1();
+            var authors = from _author in db.Authors
+                          select _author;
 
-            var authors = from a in db.Authors
-                          select a;
+            var books = from _books in db.Books
+                        select _books;
 
-            foreach( var item in authors)
-            {
-                Console.WriteLine(item.FirstName);
-            }
+            var city = from _city in db.City
+                       select _city;
+
+            var customers = from _customer in db.Books
+                            select _customer;
+
+            var status = from _status in db.Status
+                         select _status;
+
+            // Checking if queries work
+            Console.WriteLine($"Authors: {authors}");
+            Console.WriteLine($"Books: {books}");
+            Console.WriteLine($"City: {city}");
+            Console.WriteLine($"Customers: {customers}");
+            Console.WriteLine($"Status: {status}");
         }
     }
 }

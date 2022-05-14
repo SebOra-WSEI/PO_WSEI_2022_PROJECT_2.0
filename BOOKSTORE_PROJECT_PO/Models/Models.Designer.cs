@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Studia WSEI\Semestr II\PO_Project_2.0\BOOKSTORE_PROJECT_PO\Models\Author\Author.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Studia WSEI\Semestr II\PO_Project_2.0\BOOKSTORE_PROJECT_PO\Models\Models.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

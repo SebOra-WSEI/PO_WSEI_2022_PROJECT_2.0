@@ -7,15 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BOOKSTORE_PROJECT_PO.Models.Author
+namespace BOOKSTORE_PROJECT_PO.Models
 {
-    using System;
     using System.Collections.Generic;
     
-    public partial class Authors
+    public partial class City
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public City()
+        {
+            this.Customer = new HashSet<Customer>();
+        }
+    
+        public int ID { get; set; }
+        public string CityName { get; set; }
+    
+        public virtual ICollection<Customer> Customer { get; set; }
     }
 }

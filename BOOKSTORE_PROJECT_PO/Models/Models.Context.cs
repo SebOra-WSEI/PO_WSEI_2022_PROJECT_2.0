@@ -7,16 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BOOKSTORE_PROJECT_PO.Models.Author
+namespace BOOKSTORE_PROJECT_PO.Models
 {
-    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookstoreDBEntities1 : DbContext
+    public partial class BookstoreDBEntitiess : DbContext
     {
-        public BookstoreDBEntities1()
-            : base("name=BookstoreDBEntities1")
+        public BookstoreDBEntitiess()
+            : base("name=BookstoreDBEntitiess")
         {
         }
     
@@ -26,5 +25,9 @@ namespace BOOKSTORE_PROJECT_PO.Models.Author
         }
     
         public DbSet<Authors> Authors { get; set; }
+        public DbSet<Books> Books { get; set; }
+        public DbSet<City> City { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Status> Status { get; set; }
     }
 }
