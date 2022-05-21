@@ -6,7 +6,5 @@
         xmlns:local="clr-namespace:BOOKSTORE_PROJECT_PO"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DataGrid x:Name="gridBooks" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 </Window>

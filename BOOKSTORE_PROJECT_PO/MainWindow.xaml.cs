@@ -25,27 +25,22 @@ namespace BOOKSTORE_PROJECT_PO
             InitializeComponent();
             BookstoreDBEntities db = new BookstoreDBEntities();
 
-            var authors = from _author in db.Authors
-                          select _author;
+            var booksQuery =
+                from books in db.Books
+                join author in db.Authors on books.AuthorId equals author.ID
+                join status in db.Status on books.StatusId equals status.ID
+                join customer in db.Customers on books.StatusId equals customer.ID
+                select new
+                {
+                    Title = books.Title,
+                    Author = author.FirstName,
+                    PublishedYear = books.PublishedYear.Year,
+                    Status = status.StatusName,
+                    LastCustomer = customer.FirstName
+                };
 
-            var books = from _books in db.Books
-                        select _books;
+            this.gridBooks.ItemsSource = booksQuery.ToList();
 
-            var city = from _city in db.Cities
-                       select _city;
-
-            var customers = from _customer in db.Customers
-                            select _customer;
-
-            var status = from _status in db.Status
-                         select _status;
-
-            // Checking if queries work
-            Console.WriteLine($"Authors: {authors}");
-            Console.WriteLine($"Books: {books}");
-            Console.WriteLine($"City: {city}");
-            Console.WriteLine($"Customers: {customers}");
-            Console.WriteLine($"Status: {status}");
         }
     }
 }
