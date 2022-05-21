@@ -25,27 +25,49 @@ namespace BOOKSTORE_PROJECT_PO
             InitializeComponent();
             BookstoreDBEntities db = new BookstoreDBEntities();
 
-            var authors = from _author in db.Authors
-                          select _author;
+            var booksQuery =
+                from books in db.Books
+                join author in db.Authors on books.AuthorId equals author.ID
+                join status in db.Status on books.StatusId equals status.ID
+                join customer in db.Customers on books.StatusId equals customer.ID
+                select new
+                {
+                    Title = books.Title,
+                    Author = author.FirstName,
+                    PublishedYear = books.PublishedYear.Year,
+                    Status = status.StatusName,
+                    LastCustomer = customer.FirstName
+                };
 
-            var books = from _books in db.Books
-                        select _books;
+            var customersQuery =
+                from customers in db.Customers
+                join city in db.Cities on customers.CityId equals city.ID
+                select new
+                {
+                    FirstName = customers.FirstName,
+                    LastName = customers.LastName,
+                    Email = customers.Email,
+                    City = city.CityName
+                };
 
-            var city = from _city in db.Cities
-                       select _city;
+            var authorsQuery =
+                from author in db.Authors
+                select new
+                {
+                    FirstName = author.FirstName,
+                    LastName = author.LastName
+                };
 
-            var customers = from _customer in db.Customers
-                            select _customer;
+            var statusQuery =
+                from status in db.Status
+                select status.StatusName;
 
-            var status = from _status in db.Status
-                         select _status;
+            var citiesQuery =
+                from city in db.Cities
+                select city.CityName;
 
-            // Checking if queries work
-            Console.WriteLine($"Authors: {authors}");
-            Console.WriteLine($"Books: {books}");
-            Console.WriteLine($"City: {city}");
-            Console.WriteLine($"Customers: {customers}");
-            Console.WriteLine($"Status: {status}");
+            this.gridBooks.ItemsSource = booksQuery.ToList();
+
         }
     }
 }
