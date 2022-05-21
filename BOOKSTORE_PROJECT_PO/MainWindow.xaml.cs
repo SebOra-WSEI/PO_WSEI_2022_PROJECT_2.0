@@ -29,7 +29,7 @@ namespace BOOKSTORE_PROJECT_PO
                 from books in db.Books
                 join author in db.Authors on books.AuthorId equals author.ID
                 join status in db.Status on books.StatusId equals status.ID
-                join customer in db.Customers on books.StatusId equals customer.ID
+                join customer in db.Customers on books.CustomerId equals customer.ID
                 select new
                 {
                     Title = books.Title,
