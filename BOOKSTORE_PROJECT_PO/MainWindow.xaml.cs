@@ -39,17 +39,6 @@ namespace BOOKSTORE_PROJECT_PO
                     LastCustomer = customer.FirstName
                 };
 
-            var customersQuery =
-                from customers in db.Customers
-                join city in db.Cities on customers.CityId equals city.ID
-                select new
-                {
-                    FirstName = customers.FirstName,
-                    LastName = customers.LastName,
-                    Email = customers.Email,
-                    City = city.CityName
-                };
-
             var authorsQuery =
                 from author in db.Authors
                 select new
@@ -65,9 +54,41 @@ namespace BOOKSTORE_PROJECT_PO
             var citiesQuery =
                 from city in db.Cities
                 select city.CityName;
+        }
 
-            this.gridBooks.ItemsSource = booksQuery.ToList();
+        private void BtnAddCustomer(object sender, RoutedEventArgs e)
+        {
+            BookstoreDBEntities db = new BookstoreDBEntities();
 
+            var newCustomer = new Customers()
+            {
+                FirstName = "testName",
+                LastName = "testLast",
+                Email = "test@gmail.com",
+                OrderQuantity = 1,
+                CityId = 1
+            };
+
+            db.Customers.Add(newCustomer);
+            db.SaveChanges();
+        }
+
+        private void BtnLoadCustomers(object sender, RoutedEventArgs e)
+        {
+            BookstoreDBEntities db = new BookstoreDBEntities();
+
+            var customersQuery =
+               from customers in db.Customers
+               join city in db.Cities on customers.CityId equals city.ID
+               select new
+               {
+                   FirstName = customers.FirstName,
+                   LastName = customers.LastName,
+                   Email = customers.Email,
+                   City = city.CityName
+               };
+
+            this.gridCustomer.ItemsSource = customersQuery.ToList();
         }
     }
 }
