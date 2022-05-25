@@ -1,25 +1,21 @@
-﻿using BOOKSTORE_PROJECT_PO.Models;
-using System;
+﻿using BOOKSTORE_PROJECT_PO.Dal_Models;
+using BOOKSTORE_PROJECT_PO.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BOOKSTORE_PROJECT_PO
+namespace BOOKSTORE_PROJECT_PO.Dals
 {
-    public class City
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-    }
-
-    internal class CityDal
+    internal class CustomerDal
     {
         private BookstoreDBEntities db = new BookstoreDBEntities();
-        public IList<City> getCityList()
-        {
-
-           return  db.Cities.Select(cty => new City { ID = cty.ID, Name = cty.CityName }).ToList();
-        }
-
+        public IList<CustomerDalModel> getCustomerList => 
+            db.Customers
+                .Select(customer => new CustomerDalModel
+                {
+                    Name = customer.FirstName + " " + customer.LastName,
+                    Email = customer.Email,
+                    City = customer.CityId
+                }).ToList();
         internal void Add(string firstName, string lastName, string email, int cityId)
         {
             var newCustomer = new Customers()
@@ -35,3 +31,4 @@ namespace BOOKSTORE_PROJECT_PO
         }
     }
 }
+

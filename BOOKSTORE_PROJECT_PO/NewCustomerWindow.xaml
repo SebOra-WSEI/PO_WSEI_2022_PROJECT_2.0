@@ -7,23 +7,27 @@
         mc:Ignorable="d"
         Title="NewCustomerWindow" Height="450" Width="800">
     <Grid>
-        <GroupBox Header="Add a new Customer"/>
+        <Label Content="CUSTOMERS " HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="24"/>
         <WrapPanel>
-            <Label Content="First Name: " HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="firstName" HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <Label Content="First Name: " HorizontalAlignment="Left" Margin="5,40,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <TextBox x:Name="firstName" HorizontalAlignment="Left" Margin="0,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="16" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
         <WrapPanel>
-            <Label Content="Last Name: " HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="lastName" HorizontalAlignment="Left" Margin="10,54,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Last Name: " HorizontalAlignment="Left" Margin="5,65,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <TextBox x:Name="lastName" HorizontalAlignment="Left" Margin="2,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
         </WrapPanel>
         <WrapPanel>
-            <Label Content="Email: " HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="email" HorizontalAlignment="Left" Margin="10,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Email: " HorizontalAlignment="Left" Margin="5,90,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <TextBox x:Name="email" HorizontalAlignment="Left" Margin="26,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="18" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
         <WrapPanel>
-            <Label Content="City: " HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="comboBoxData" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="50" Height="18" DisplayMemberPath="Name" SelectedValuePath="ID"/>
+            <Label Content="City: " HorizontalAlignment="Left" Margin="5,117,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <ComboBox x:Name="comboBoxData" HorizontalAlignment="Left" Margin="33,120,0,0" VerticalAlignment="Top" Width="111" Height="18" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
-        <Button Click="BtnAddNewCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="84,166,0,0" VerticalAlignment="Top"/>
+        <WrapPanel>
+            <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="15,150,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
+            <Button Click="BtnAddNewCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="15,150,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
+        </WrapPanel>
+        <DataGrid x:Name="gridCustomer" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="0,199,0,0" Height="218" VerticalAlignment="Top"/>
     </Grid>
 </Window>

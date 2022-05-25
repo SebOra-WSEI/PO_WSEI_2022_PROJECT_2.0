@@ -1,4 +1,4 @@
-﻿using BOOKSTORE_PROJECT_PO.Models;
+﻿using BOOKSTORE_PROJECT_PO.Dals;
 using System.Windows;
 
 namespace BOOKSTORE_PROJECT_PO
@@ -9,16 +9,23 @@ namespace BOOKSTORE_PROJECT_PO
     public partial class NewCustomerWindow : Window
     {
         CityDal cityDal = new CityDal();
+        CustomerDal customerDal = new CustomerDal();
         public NewCustomerWindow()
         {
             InitializeComponent();
-            comboBoxData.ItemsSource = cityDal.getCityList();
+
+            gridCustomer.ItemsSource = customerDal.getCustomerList;
+            comboBoxData.ItemsSource = cityDal.getCityList;
         }
 
+        // Add a new customer 
         private void BtnAddNewCustomer(object sender, RoutedEventArgs e)
         {
-            cityDal.Add(firstName.Text, lastName.Text, email.Text, int.Parse(comboBoxData.SelectedValue.ToString()));
+            customerDal.Add(firstName.Text, lastName.Text, email.Text, int.Parse(comboBoxData.SelectedValue.ToString()));
             this.Close();
         }
+
+        // Back btn - close customer's window
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
     }
 }

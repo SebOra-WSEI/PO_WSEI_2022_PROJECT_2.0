@@ -87,7 +87,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CityDal.cs" />
+    <Compile Include="Dals\CityDal.cs" />
+    <Compile Include="Dals\CustomerDal.cs" />
+    <Compile Include="Dal_Models\CityDalModel.cs" />
+    <Compile Include="Dal_Models\CustomerDalModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
