@@ -10,7 +10,7 @@
         <Grid>
             <Button Content="Load Customers" Click="BtnLoadCustomers" HorizontalAlignment="Left" Margin="5,10,0,0" Width="120" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Himalaya"/>
             <Button x:Name="btnAddCustomer" Click="BtnNewCustomerWindow" Content="Add a Customer" HorizontalAlignment="Left" Width="120" Margin="150,10,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Himalaya"/>
-            <DataGrid x:Name="gridCustomer" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="0,40,0,0" Height="218" VerticalAlignment="Top"/>
+            <DataGrid x:Name="gridCustomer1" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="0,40,0,0" Height="218" VerticalAlignment="Top"/>
         </Grid>
       
     </Grid>
