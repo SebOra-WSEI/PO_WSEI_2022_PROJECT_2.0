@@ -5,13 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BOOKSTORE_PROJECT_PO"
         mc:Ignorable="d"
-        Title="Customers" Height="500" Width="900">
+        Title="BOOKSTORE" Height="500" Width="734">
     <Grid>
+        <WrapPanel>
+            <Button x:Name="btnAddCustomer" Click="BtnNewCustomerWindow" Content="Add Customer" HorizontalAlignment="Left" Width="120" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Button x:Name="btnAddBook" Click="BtnNewBookWindow" Content="Add Book" HorizontalAlignment="Left" Width="120" Margin="15,10,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Button x:Name="btnAddCity" Click="BtnNewCityWindow" Content="Add City" HorizontalAlignment="Left" Width="120" Margin="15,10,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Button x:Name="btnAddAuthor" Click="BtnNewAuthorWindow" Content="Add Author" HorizontalAlignment="Left" Width="120" Margin="15,10,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Button x:Name="btnDisplayStatus" Click="BtnStatusWindow" Content="Display Status" HorizontalAlignment="Left" Width="120" Margin="15,10,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+        </WrapPanel>
+        <WrapPanel>
+            <Button Content="Load Data" Click="BtnLoadData" HorizontalAlignment="Left" Margin="10,60,0,0" Width="120" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+        </WrapPanel>
         <Grid>
-            <Button Content="Load Customers" Click="BtnLoadCustomers" HorizontalAlignment="Left" Margin="5,10,0,0" Width="120" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Himalaya"/>
-            <Button x:Name="btnAddCustomer" Click="BtnNewCustomerWindow" Content="Add a Customer" HorizontalAlignment="Left" Width="120" Margin="150,10,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Himalaya"/>
-            <DataGrid x:Name="gridCustomer1" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="0,40,0,0" Height="218" VerticalAlignment="Top"/>
+            <DataGrid x:Name="allData" d:ItemsSource="{d:SampleData ItemCount=18}" ColumnWidth="*" Margin="0,111,0,0" VerticalAlignment="Top"/>
         </Grid>
-      
     </Grid>
 </Window>
