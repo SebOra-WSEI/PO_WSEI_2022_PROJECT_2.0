@@ -56,21 +56,10 @@ namespace BOOKSTORE_PROJECT_PO
                 select city.CityName;
         }
 
-        private void BtnAddCustomer(object sender, RoutedEventArgs e)
-        {
-            BookstoreDBEntities db = new BookstoreDBEntities();
-
-            var newCustomer = new Customers()
-            {
-                FirstName = "testName",
-                LastName = "testLast",
-                Email = "test@gmail.com",
-                OrderQuantity = 1,
-                CityId = 1
-            };
-
-            db.Customers.Add(newCustomer);
-            db.SaveChanges();
+        private void BtnNewCustomerWindow(object sender, RoutedEventArgs e)
+        { 
+            var win2 = new NewCustomerWindow();
+            win2.Show();
         }
 
         private void BtnLoadCustomers(object sender, RoutedEventArgs e)
@@ -82,8 +71,7 @@ namespace BOOKSTORE_PROJECT_PO
                join city in db.Cities on customers.CityId equals city.ID
                select new
                {
-                   FirstName = customers.FirstName,
-                   LastName = customers.LastName,
+                   FullName = customers.FirstName  + " " + customers.LastName,
                    Email = customers.Email,
                    City = city.CityName
                };
