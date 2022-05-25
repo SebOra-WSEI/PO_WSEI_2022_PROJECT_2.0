@@ -1,5 +1,4 @@
-﻿using BOOKSTORE_PROJECT_PO.Dals;
-using System.Windows;
+﻿using System.Windows;
 
 namespace BOOKSTORE_PROJECT_PO
 {
@@ -8,43 +7,27 @@ namespace BOOKSTORE_PROJECT_PO
     /// </summary>
     public partial class MainWindow : Window
     {
-        CustomerDal customerDal = new CustomerDal();
-        public MainWindow(){ 
-            InitializeComponent();
+        public MainWindow() { InitializeComponent(); }
 
-            gridCustomer1.ItemsSource = customerDal.getCustomerList;
+        private void BtnNewCustomerWindow(object sender, RoutedEventArgs e) => new NewCustomerWindow().Show();
+
+        private void BtnNewBookWindow(object sender, RoutedEventArgs e) => new NewBookWIndow().Show();
+
+        private void BtnNewCityWindow(object sender, RoutedEventArgs e) => new NewBookWIndow().Show();
+
+        private void BtnNewAuthorWindow(object sender, RoutedEventArgs e) => new NewBookWIndow().Show();
+
+        private void BtnStatusWindow(object sender, RoutedEventArgs e)
+        {
+
         }
 
-        // Display New Customer form and all customers table
-        private void BtnNewCustomerWindow(object sender, RoutedEventArgs e)
-        { 
-            var customersWindow = new NewCustomerWindow();
-            customersWindow.Show();
-        }
+        private void BtnLoadData(object sender, RoutedEventArgs e)
+        {
 
-        // Load customer's data
-        private void BtnLoadCustomers(object sender, RoutedEventArgs e) => 
-            gridCustomer1.ItemsSource = customerDal.getCustomerList;
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //var booksQuery =
 //    from books in db.Books
@@ -59,19 +42,3 @@ namespace BOOKSTORE_PROJECT_PO
 //        Status = status.StatusName,
 //        LastCustomer = customer.FirstName
 //    };
-
-//var authorsQuery =
-//    from author in db.Authors
-//    select new
-//    {
-//        FirstName = author.FirstName,
-//        LastName = author.LastName
-//    };
-
-//var statusQuery =
-//    from status in db.Status
-//    select status.StatusName;
-
-//var citiesQuery =
-//    from city in db.Cities
-//    select city.CityName;
