@@ -9,7 +9,7 @@ namespace BOOKSTORE_PROJECT_PO.Dals
     {
         private BookstoreDBEntities db = new BookstoreDBEntities();
         public IList<AuthorDalModel> getAuthorList =>
-            db.Authors.Select(author => new AuthorDalModel { Name = author.FirstName + " " + author.LastName }).ToList();
+            db.Authors.Select(author => new AuthorDalModel { Author = author.FirstName + " " + author.LastName }).ToList();
 
         public void Add(string firstName, string lastName)
         {
