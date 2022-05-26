@@ -14,18 +14,16 @@ namespace BOOKSTORE_PROJECT_PO
         {
             InitializeComponent();
 
-            gridCustomer.ItemsSource = customerDal.getCustomerList;
-            comboBoxData.ItemsSource = cityDal.getCityList;
+            LoadCustomerData();
+            LoadSelectorData();
         }
-
-        // Add a new customer 
+        private void LoadCustomerData() => gridCustomer.ItemsSource = customerDal.getCustomerList;
+        private void LoadSelectorData() => comboBoxData.ItemsSource = cityDal.getCityList;
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
         private void BtnAddNewCustomer(object sender, RoutedEventArgs e)
         {
             customerDal.Add(firstName.Text, lastName.Text, email.Text, int.Parse(comboBoxData.SelectedValue.ToString()));
-            this.Close();
+            LoadCustomerData();
         }
-
-        // Back btn - close customer's window
-        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
     }
 }

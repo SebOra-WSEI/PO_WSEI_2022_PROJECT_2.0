@@ -14,7 +14,7 @@
         </WrapPanel>
         <WrapPanel>
             <Label Content="Last Name: " HorizontalAlignment="Left" Margin="5,65,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-            <TextBox x:Name="lastName" HorizontalAlignment="Left" Margin="2,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
+            <TextBox x:Name="lastName" HorizontalAlignment="Left" Margin="2,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="16" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
         <WrapPanel>
             <Label Content="Email: " HorizontalAlignment="Left" Margin="5,90,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>

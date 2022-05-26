@@ -13,9 +13,9 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnNewBookWindow(object sender, RoutedEventArgs e) => new NewBookWIndow().Show();
 
-        private void BtnNewCityWindow(object sender, RoutedEventArgs e) => new NewBookWIndow().Show();
+        private void BtnNewCityWindow(object sender, RoutedEventArgs e) => new NewCityWindow().Show();
 
-        private void BtnNewAuthorWindow(object sender, RoutedEventArgs e) => new NewBookWIndow().Show();
+        private void BtnNewAuthorWindow(object sender, RoutedEventArgs e) => new NewAuthorWindow().Show();
 
         private void BtnStatusWindow(object sender, RoutedEventArgs e)
         {
