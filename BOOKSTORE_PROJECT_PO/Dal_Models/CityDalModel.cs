@@ -1,8 +1,7 @@
 ﻿namespace BOOKSTORE_PROJECT_PO.Dal_Models
 {
-    public  class CityDalModel
+    internal class CityDalModel
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public string City { get; set; }
     }
 }

@@ -79,6 +79,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dal_Models\CityDalModel.cs" />
     <Compile Include="StatusWindow.xaml.cs">
       <DependentUpon>StatusWindow.xaml</DependentUpon>
     </Compile>
@@ -92,7 +93,7 @@
     </Compile>
     <Compile Include="Dals\CityDal.cs" />
     <Compile Include="Dals\CustomerDal.cs" />
-    <Compile Include="Dal_Models\CityDalModel.cs" />
+    <Compile Include="Dal_Models\CityDalModelForSelector.cs" />
     <Compile Include="Dal_Models\CustomerDalModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
