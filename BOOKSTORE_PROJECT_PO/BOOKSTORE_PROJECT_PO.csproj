@@ -79,6 +79,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dals\AuthorDal.cs" />
+    <Compile Include="Dal_Models\AuthorDalModel.cs" />
     <Compile Include="Dal_Models\CityDalModel.cs" />
     <Compile Include="StatusWindow.xaml.cs">
       <DependentUpon>StatusWindow.xaml</DependentUpon>
