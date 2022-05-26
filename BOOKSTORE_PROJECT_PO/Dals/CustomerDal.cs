@@ -16,6 +16,7 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                     Email = customer.Email,
                     City = customer.CityId
                 }).ToList();
+
         internal void Add(string firstName, string lastName, string email, int cityId)
         {
             var newCustomer = new Customers()
@@ -31,4 +32,3 @@ namespace BOOKSTORE_PROJECT_PO.Dals
         }
     }
 }
-
