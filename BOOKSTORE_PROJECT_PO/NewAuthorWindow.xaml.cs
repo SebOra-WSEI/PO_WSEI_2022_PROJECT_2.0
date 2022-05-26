@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using BOOKSTORE_PROJECT_PO.Dals;
 
 namespace BOOKSTORE_PROJECT_PO
 {
@@ -19,9 +8,20 @@ namespace BOOKSTORE_PROJECT_PO
     /// </summary>
     public partial class NewAuthorWindow : Window
     {
+        AuthorDal authorDal = new AuthorDal();
         public NewAuthorWindow()
         {
             InitializeComponent();
+            LoadAuthorData();
+        }
+
+        private void LoadAuthorData() => gridAuthors.ItemsSource = authorDal.getAuthorList;
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
+
+        private void BtnAddAuthor(object sender, RoutedEventArgs e)
+        {
+            authorDal.Add(authorName.Text, authorLastName.Text);
+            LoadAuthorData();
         }
     }
 }
