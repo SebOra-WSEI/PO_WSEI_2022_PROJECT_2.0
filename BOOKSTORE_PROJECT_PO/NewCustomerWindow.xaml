@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BOOKSTORE_PROJECT_PO"
         mc:Ignorable="d"
-        Title="CUSTOMERS" Height="450" Width="800">
+        Title="CUSTOMERS" Height="458" Width="516">
     <Grid>
         <Label Content="CUSTOMERS " HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="24"/>
         <WrapPanel>
@@ -28,6 +28,6 @@
             <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="15,150,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
             <Button Click="BtnAddNewCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="15,150,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
         </WrapPanel>
-        <DataGrid x:Name="gridCustomer" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="0,199,0,0" Height="218" VerticalAlignment="Top"/>
+        <DataGrid x:Name="gridCustomer" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="5,199,5,10" HorizontalAlignment="Center" FontFamily="Microsoft Himalaya" FontSize="17"/>
     </Grid>
 </Window>
