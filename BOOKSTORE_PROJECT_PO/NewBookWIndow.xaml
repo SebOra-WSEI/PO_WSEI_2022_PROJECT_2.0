@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BOOKSTORE_PROJECT_PO"
         mc:Ignorable="d"
-        Title="BOOKS" Height="450" Width="763">
+        Title="BOOKS" Height="450" Width="687">
     <Grid>
         <Label Content="BOOKS " HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="24"/>
         <WrapPanel Margin="0,15,0,0">
@@ -14,13 +14,11 @@
             <Label Content="Author: " HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
             <ComboBox SelectedIndex="0" x:Name="comboBoxAuthor" HorizontalAlignment="Left" Margin="5,53,0,0" VerticalAlignment="Top" Width="111" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
             <Label Content="Published Year: " HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-            <DatePicker SelectedDateFormat="Short" HorizontalAlignment="Left" Margin="5,47,0,0" Height="29" VerticalAlignment="Top" FontSize="16" FontFamily="Segoe UI Symbol"/>
+            <DatePicker x:Name="datePicker" SelectedDateFormat="Short" HorizontalAlignment="Left" Margin="5,47,0,0" Height="29" VerticalAlignment="Top" FontSize="16" FontFamily="Segoe UI Symbol"/>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Content="Last Customer: " HorizontalAlignment="Left" Margin="5,90,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
             <ComboBox SelectedIndex="1" x:Name="comboBoxCustomer" HorizontalAlignment="Left" Margin="5,93,0,0" VerticalAlignment="Top" Width="111" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
-            <Label Content="City: " HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-            <ComboBox SelectedIndex="0" x:Name="comboBoxCity" HorizontalAlignment="Left" Margin="5,93,0,0" VerticalAlignment="Top" Width="111" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
             <Label Content="Status: " HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
             <ComboBox SelectedIndex="0" x:Name="comboBoxStatus" HorizontalAlignment="Left" Margin="5,93,0,0" VerticalAlignment="Top" Width="111" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
             <Label Content="Quantity: " HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
@@ -43,6 +41,6 @@
             <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="15,150,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
             <Button Click="BtnAddNewBook" Content="Add Book" HorizontalAlignment="Left" Margin="15,150,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
         </WrapPanel>
-        <DataGrid x:Name="gridCustomer" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="5,199,5,10" HorizontalAlignment="Center" FontFamily="Microsoft Himalaya" FontSize="17" Width="673"/>
+        <DataGrid x:Name="gridBooks" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="5,199,5,5" HorizontalAlignment="Center" FontFamily="Microsoft Himalaya" FontSize="17" Width="673"/>
     </Grid>
 </Window>
