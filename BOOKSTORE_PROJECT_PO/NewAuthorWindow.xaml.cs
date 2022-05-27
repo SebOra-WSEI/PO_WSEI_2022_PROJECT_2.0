@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using BOOKSTORE_PROJECT_PO.Dals;
 
 namespace BOOKSTORE_PROJECT_PO
@@ -20,10 +21,17 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnAddAuthor(object sender, RoutedEventArgs e)
         {
-            authorDal.Add(
-                authorName.Text, 
-                authorLastName.Text
-                );
+            try
+            {
+                if (authorName.Text.Length == 0 || authorLastName.Text.Length == 0) 
+                    throw new Exception();
+
+                authorDal.Add(
+                    authorName.Text,
+                    authorLastName.Text
+                    );
+            }
+            catch (Exception) { new ErrorWindow().Show(); }
 
             LoadAuthorData();
         }

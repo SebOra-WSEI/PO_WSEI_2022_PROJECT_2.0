@@ -1,4 +1,5 @@
 ﻿using BOOKSTORE_PROJECT_PO.Dals;
+using System;
 using System.Windows;
 
 namespace BOOKSTORE_PROJECT_PO
@@ -33,14 +34,18 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnAddNewBook(object sender, RoutedEventArgs e)
         {
-            bookDal.Add(
-                title.Text,
-                datePicker.SelectedDate.Value.Date,
-                int.Parse(comboBoxQuantity.SelectedValue.ToString()),
-                int.Parse(comboBoxAuthor.SelectedValue.ToString()),
-                int.Parse(comboBoxStatus.SelectedValue.ToString()),
-                int.Parse(comboBoxCustomer.SelectedValue.ToString())
-                );
+            try
+            {
+                bookDal.Add(
+                    title.Text,
+                    datePicker.SelectedDate.Value.Date,
+                    int.Parse(comboBoxQuantity.SelectedValue.ToString()),
+                    int.Parse(comboBoxAuthor.SelectedValue.ToString()),
+                    int.Parse(comboBoxStatus.SelectedValue.ToString()),
+                    int.Parse(comboBoxCustomer.SelectedValue.ToString())
+                    );
+            }
+            catch (Exception) { new ErrorWindow().Show(); }
 
             LoadBooksData();
         }

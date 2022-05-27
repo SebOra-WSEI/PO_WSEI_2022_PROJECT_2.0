@@ -1,4 +1,5 @@
 ﻿using BOOKSTORE_PROJECT_PO.Dals;
+using System;
 using System.Windows;
 
 namespace BOOKSTORE_PROJECT_PO
@@ -24,12 +25,20 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnAddNewCustomer(object sender, RoutedEventArgs e)
         {
-            customerDal.Add(
-                firstName.Text, 
-                lastName.Text, 
-                email.Text, 
-                int.Parse(comboBoxData.SelectedValue.ToString())
-                );
+            try
+            {
+                if (firstName.Text.Length == 0 ||lastName.Text.Length == 0 || email.Text.Length == 0) 
+                    throw new Exception();
+
+                customerDal.Add(
+                    firstName.Text,
+                    lastName.Text,
+                    email.Text,
+                    int.Parse(comboBoxData.SelectedValue.ToString())
+                    );
+            }
+            catch (Exception) { new ErrorWindow().Show(); }
+
             LoadCustomerData();
         }
 

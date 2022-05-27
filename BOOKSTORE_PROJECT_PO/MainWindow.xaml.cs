@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using BOOKSTORE_PROJECT_PO.Dals;
+using System.Windows;
 
 namespace BOOKSTORE_PROJECT_PO
 {
@@ -7,7 +8,13 @@ namespace BOOKSTORE_PROJECT_PO
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow() { InitializeComponent(); }
+        BooksDal bookDal = new BooksDal();
+
+        public MainWindow() 
+        { 
+            InitializeComponent();
+            LoadBooksData();
+        }
 
         private void BtnNewCustomerWindow(object sender, RoutedEventArgs e) => new NewCustomerWindow().Show();
 
@@ -22,10 +29,9 @@ namespace BOOKSTORE_PROJECT_PO
 
         }
 
-        private void BtnLoadData(object sender, RoutedEventArgs e)
-        {
+        private void LoadBooksData() => gridBooks.ItemsSource = bookDal.getBooksList;
 
-        }
+        private void BtnLoadData(object sender, RoutedEventArgs e) => LoadBooksData();
     }
 }
 
