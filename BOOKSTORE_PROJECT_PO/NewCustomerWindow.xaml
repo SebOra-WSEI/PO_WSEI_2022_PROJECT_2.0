@@ -21,8 +21,8 @@
             <TextBox x:Name="email" HorizontalAlignment="Left" Margin="26,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="16" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
         <WrapPanel>
-            <Label Content="City: " HorizontalAlignment="Left" Margin="5,117,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-            <ComboBox x:Name="comboBoxData" HorizontalAlignment="Left" Margin="33,120,0,0" VerticalAlignment="Top" Width="111" Height="18" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Label Content="City: " HorizontalAlignment="Left" Margin="5,119,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <ComboBox SelectedIndex="0" x:Name="comboBoxData" HorizontalAlignment="Left" Margin="33,120,0,0" VerticalAlignment="Top" Width="111" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
         <WrapPanel>
             <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="15,150,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
