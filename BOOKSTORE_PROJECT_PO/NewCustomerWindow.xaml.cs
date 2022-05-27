@@ -24,7 +24,12 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnAddNewCustomer(object sender, RoutedEventArgs e)
         {
-            customerDal.Add(firstName.Text, lastName.Text, email.Text, int.Parse(comboBoxData.SelectedValue.ToString()));
+            customerDal.Add(
+                firstName.Text, 
+                lastName.Text, 
+                email.Text, 
+                int.Parse(comboBoxData.SelectedValue.ToString())
+                );
             LoadCustomerData();
         }
 

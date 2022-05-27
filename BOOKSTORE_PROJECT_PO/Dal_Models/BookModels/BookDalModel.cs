@@ -7,6 +7,7 @@ namespace BOOKSTORE_PROJECT_PO.Dal_Models
         public string Title { get; set; }
         public DateTime PublishedYear { get; set; }
         public int Author { get; set; }
+        public int Quantity { get; set; }
         public int Status { get; set; }
         public int LastCustomer { get; set; }
     }

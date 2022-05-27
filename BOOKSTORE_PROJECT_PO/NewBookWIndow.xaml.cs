@@ -12,17 +12,16 @@ namespace BOOKSTORE_PROJECT_PO
         AuthorDal authorDal = new AuthorDal();
         StatusDal statusDal = new StatusDal();
         CustomerDal customerDal = new CustomerDal();
+        BooksDal bookDal = new BooksDal();
 
         public NewBookWIndow()
         {
             InitializeComponent();
-            LoadSelectorCityData();
             LoadSelectorAuthorData();
             LoadSelectorStatusData();
             LoadSelectorCustomerData();
+            LoadBooksData();
         }
-
-        private void LoadSelectorCityData() => comboBoxCity.ItemsSource = cityDal.getCityList;
 
         private void LoadSelectorAuthorData() => comboBoxAuthor.ItemsSource = authorDal.getAuthorList;
 
@@ -30,11 +29,22 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void LoadSelectorCustomerData() => comboBoxCustomer.ItemsSource = customerDal.getCustomerForSelecorList;
 
-        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
+        private void LoadBooksData() => gridBooks.ItemsSource = bookDal.getBooksList;
 
         private void BtnAddNewBook(object sender, RoutedEventArgs e)
         {
+            bookDal.Add(
+                title.Text,
+                datePicker.SelectedDate.Value.Date,
+                int.Parse(comboBoxQuantity.SelectedValue.ToString()),
+                int.Parse(comboBoxAuthor.SelectedValue.ToString()),
+                int.Parse(comboBoxStatus.SelectedValue.ToString()),
+                int.Parse(comboBoxCustomer.SelectedValue.ToString())
+                );
 
+            LoadBooksData();
         }
+
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
     }
 }

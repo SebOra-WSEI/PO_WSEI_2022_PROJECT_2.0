@@ -20,7 +20,11 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnAddAuthor(object sender, RoutedEventArgs e)
         {
-            authorDal.Add(authorName.Text, authorLastName.Text);
+            authorDal.Add(
+                authorName.Text, 
+                authorLastName.Text
+                );
+
             LoadAuthorData();
         }
 

@@ -15,7 +15,7 @@ namespace BOOKSTORE_PROJECT_PO
             LoadCityData();
         }
 
-        public void LoadCityData() => gridCities.ItemsSource = cityDal.getCityNameList;
+        private void LoadCityData() => gridCities.ItemsSource = cityDal.getCityNameList;
 
         private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
 
