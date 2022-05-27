@@ -8,6 +8,7 @@ namespace BOOKSTORE_PROJECT_PO
     public partial class NewCityWindow : Window
     {
         CityDal cityDal = new CityDal();
+
         public NewCityWindow()
         {
             InitializeComponent();

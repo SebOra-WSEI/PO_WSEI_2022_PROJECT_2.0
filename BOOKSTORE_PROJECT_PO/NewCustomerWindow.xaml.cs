@@ -10,6 +10,7 @@ namespace BOOKSTORE_PROJECT_PO
     {
         CityDal cityDal = new CityDal();
         CustomerDal customerDal = new CustomerDal();
+
         public NewCustomerWindow()
         {
             InitializeComponent();
@@ -17,13 +18,16 @@ namespace BOOKSTORE_PROJECT_PO
             LoadCustomerData();
             LoadSelectorData();
         }
+
         private void LoadCustomerData() => gridCustomer.ItemsSource = customerDal.getCustomerList;
         private void LoadSelectorData() => comboBoxData.ItemsSource = cityDal.getCityList;
-        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
+
         private void BtnAddNewCustomer(object sender, RoutedEventArgs e)
         {
             customerDal.Add(firstName.Text, lastName.Text, email.Text, int.Parse(comboBoxData.SelectedValue.ToString()));
             LoadCustomerData();
         }
+
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
     }
 }

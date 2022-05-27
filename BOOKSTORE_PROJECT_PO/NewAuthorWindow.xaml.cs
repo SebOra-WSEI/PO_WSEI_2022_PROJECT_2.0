@@ -9,6 +9,7 @@ namespace BOOKSTORE_PROJECT_PO
     public partial class NewAuthorWindow : Window
     {
         AuthorDal authorDal = new AuthorDal();
+
         public NewAuthorWindow()
         {
             InitializeComponent();
@@ -16,12 +17,13 @@ namespace BOOKSTORE_PROJECT_PO
         }
 
         private void LoadAuthorData() => gridAuthors.ItemsSource = authorDal.getAuthorList;
-        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
 
         private void BtnAddAuthor(object sender, RoutedEventArgs e)
         {
             authorDal.Add(authorName.Text, authorLastName.Text);
             LoadAuthorData();
         }
+
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
     }
 }

@@ -8,9 +8,10 @@ namespace BOOKSTORE_PROJECT_PO.Dals
     internal class CustomerDal
     {
         private BookstoreDBEntities db = new BookstoreDBEntities();
+
         public IList<CustomerDalModel> getCustomerList => 
-            db.Customers
-                .Select(customer => new CustomerDalModel
+            db.Customers.Select(
+                customer => new CustomerDalModel
                 {
                     Name = customer.FirstName + " " + customer.LastName,
                     Email = customer.Email,
