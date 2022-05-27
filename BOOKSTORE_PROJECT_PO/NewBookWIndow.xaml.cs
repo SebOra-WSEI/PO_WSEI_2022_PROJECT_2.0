@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BOOKSTORE_PROJECT_PO.Dals;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BOOKSTORE_PROJECT_PO
 {
@@ -19,9 +8,29 @@ namespace BOOKSTORE_PROJECT_PO
     /// </summary>
     public partial class NewBookWIndow : Window
     {
+        CityDal cityDal = new CityDal();
+        AuthorDal authorDal = new AuthorDal();
+        StatusDal statusDal = new StatusDal();
+
         public NewBookWIndow()
         {
             InitializeComponent();
+            LoadSelectorCityData();
+            LoadSelectorAuthorData();
+            LoadSelectorStatusData();
+        }
+
+        private void LoadSelectorCityData() => comboBoxCity.ItemsSource = cityDal.getCityList;
+
+        private void LoadSelectorAuthorData() => comboBoxAuthor.ItemsSource = authorDal.getAuthorList;
+
+        private void LoadSelectorStatusData() => comboBoxStatus.ItemsSource = statusDal.getStatusList;
+
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
+
+        private void BtnAddNewBook(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

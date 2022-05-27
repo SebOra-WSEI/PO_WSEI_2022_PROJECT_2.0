@@ -16,7 +16,7 @@ namespace BOOKSTORE_PROJECT_PO
             LoadAuthorData();
         }
 
-        private void LoadAuthorData() => gridAuthors.ItemsSource = authorDal.getAuthorList;
+        private void LoadAuthorData() => gridAuthors.ItemsSource = authorDal.getAuthorNameList;
 
         private void BtnAddAuthor(object sender, RoutedEventArgs e)
         {

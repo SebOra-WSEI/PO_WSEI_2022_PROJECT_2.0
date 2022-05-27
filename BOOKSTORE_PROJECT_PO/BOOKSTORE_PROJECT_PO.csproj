@@ -80,8 +80,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Dals\AuthorDal.cs" />
-    <Compile Include="Dal_Models\AuthorDalModel.cs" />
-    <Compile Include="Dal_Models\CityDalModel.cs" />
+    <Compile Include="Dals\BooksDal.cs" />
+    <Compile Include="Dals\StatusDal.cs" />
+    <Compile Include="Dal_Models\AuthorModels\AuthorDalModel.cs" />
+    <Compile Include="Dal_Models\AuthorModels\AuthorDalModelForSelector.cs" />
+    <Compile Include="Dal_Models\BookModels\BookDalModel.cs" />
+    <Compile Include="Dal_Models\CityModels\CityDalModel.cs" />
+    <Compile Include="Dal_Models\StatusModels\StatusDalModelForSelector.cs" />
     <Compile Include="StatusWindow.xaml.cs">
       <DependentUpon>StatusWindow.xaml</DependentUpon>
     </Compile>
@@ -95,8 +100,8 @@
     </Compile>
     <Compile Include="Dals\CityDal.cs" />
     <Compile Include="Dals\CustomerDal.cs" />
-    <Compile Include="Dal_Models\CityDalModelForSelector.cs" />
-    <Compile Include="Dal_Models\CustomerDalModel.cs" />
+    <Compile Include="Dal_Models\CityModels\CityDalModelForSelector.cs" />
+    <Compile Include="Dal_Models\CustomerModels\CustomerDalModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
