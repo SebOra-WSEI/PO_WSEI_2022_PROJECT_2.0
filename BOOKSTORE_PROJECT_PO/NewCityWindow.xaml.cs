@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace BOOKSTORE_PROJECT_PO
 {
@@ -21,7 +22,14 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnAddNewCity(object sender, RoutedEventArgs e)
         {
-            cityDal.Add(cityInput.Text);
+            try 
+            {
+                if (cityInput.Text.Length == 0) throw new Exception();
+
+                cityDal.Add(cityInput.Text); 
+            }
+            catch (Exception) { new ErrorWindow().Show(); }
+
             LoadCityData();
         }
     }

@@ -8,18 +8,18 @@
         Title="BOOKSTORE" Height="500" Width="734">
     <Grid>
         <Label Content="Bookstore" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="24"/>
-        <WrapPanel>
-            <Button x:Name="btnAddCustomer" Click="BtnNewCustomerWindow" Content="Add Customer" HorizontalAlignment="Left" Width="120" Margin="10,55,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-            <Button x:Name="btnAddBook" Click="BtnNewBookWindow" Content="Add Book" HorizontalAlignment="Left" Width="120" Margin="15,55,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-            <Button x:Name="btnAddCity" Click="BtnNewCityWindow" Content="Add City" HorizontalAlignment="Left" Width="120" Margin="15,55,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-            <Button x:Name="btnAddAuthor" Click="BtnNewAuthorWindow" Content="Add Author" HorizontalAlignment="Left" Width="120" Margin="15,55,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-            <Button x:Name="btnDisplayStatus" Click="BtnStatusWindow" Content="Display Status" HorizontalAlignment="Left" Width="120" Margin="15,55,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+        <WrapPanel HorizontalAlignment="Center">
+            <Button x:Name="btnAddCustomer" Click="BtnNewCustomerWindow" Content="Add Customer" HorizontalAlignment="Left" Width="120" Margin="0,75,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Button x:Name="btnAddBook" Click="BtnNewBookWindow" Content="Add Book" HorizontalAlignment="Left" Width="120" Margin="15,75,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Button x:Name="btnAddCity" Click="BtnNewCityWindow" Content="Add City" HorizontalAlignment="Left" Width="120" Margin="15,75,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Button x:Name="btnAddAuthor" Click="BtnNewAuthorWindow" Content="Add Author" HorizontalAlignment="Left" Width="120" Margin="15,75,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Button x:Name="btnDisplayStatus" Click="BtnStatusWindow" Content="Display Status" HorizontalAlignment="Left" Width="120" Margin="15,75,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
         <WrapPanel>
-            <Button Content="Load Data" Click="BtnLoadData" HorizontalAlignment="Left" Margin="10,200,0,0" Width="120" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Button Content="Load Data" Click="BtnLoadData" HorizontalAlignment="Left" Margin="10,210,0,0" Width="95" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
         <Grid>
-            <DataGrid x:Name="allData" d:ItemsSource="{d:SampleData ItemCount=15}" ColumnWidth="*" Margin="5,240,5,10" Height="186" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Microsoft Himalaya" FontSize="17"/>
+            <DataGrid x:Name="gridBooks" d:ItemsSource="{d:SampleData ItemCount=15}" ColumnWidth="*" Margin="5,240,5,5" Height="234" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Microsoft Himalaya" FontSize="17" Width="714"/>
         </Grid>
     </Grid>
 </Window>
