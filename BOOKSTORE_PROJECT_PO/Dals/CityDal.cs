@@ -8,11 +8,21 @@ namespace BOOKSTORE_PROJECT_PO
     internal class CityDal
     {
         private BookstoreDBEntities db = new BookstoreDBEntities();
+
         public IList<CityDalModelForSelector> getCityList =>  
-            db.Cities.Select(city => new CityDalModelForSelector { ID = city.ID, Name = city.CityName }).ToList();
+            db.Cities.Select(
+                city => new CityDalModelForSelector 
+                { 
+                    ID = city.ID, 
+                    Name = city.CityName 
+                }).ToList();
 
         public IList<CityDalModel> getCityNameList =>
-            db.Cities.Select(city => new CityDalModel { City = city.CityName }).ToList();
+            db.Cities.Select(
+                city => new CityDalModel 
+                { 
+                    City = city.CityName 
+                }).ToList();
 
         internal void Add( string city)
         {
