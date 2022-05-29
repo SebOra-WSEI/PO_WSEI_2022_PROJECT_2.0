@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BOOKSTORE_PROJECT_PO"
         mc:Ignorable="d"
-        Title="ErrorWindow" Height="450" Width="800">
+        Title="ErrorWindow" Height="312" Width="737">
     <Grid>
-        <Label Content="ERROR"/>
+        <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Ups, something went wrong .." HorizontalAlignment="Center" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="60"/>
+        </Grid>
     </Grid>
 </Window>
