@@ -11,11 +11,11 @@
         <Label Content="Add new author:" HorizontalAlignment="Left" Margin="35,35,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="22"/>
         <WrapPanel>
             <Label Content="First Name:" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="18"/>
-            <TextBox x:Name="authorName" HorizontalAlignment="Left" Margin="2,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="16" FontFamily="Microsoft Himalaya"/>
+            <TextBox x:Name="authorName" HorizontalAlignment="Left" Margin="2,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
         </WrapPanel>
         <WrapPanel>
             <Label Content="Last Name:" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="18"/>
-            <TextBox x:Name="authorLastName" HorizontalAlignment="Left" Margin="4,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="16" FontFamily="Microsoft Himalaya"/>
+            <TextBox x:Name="authorLastName" HorizontalAlignment="Left" Margin="4,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
         </WrapPanel>
         <WrapPanel>
             <Button Click="BtnAddAuthor" Content="Add Author" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
@@ -23,6 +23,6 @@
         <WrapPanel>
             <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="5,170,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
         </WrapPanel>
-        <DataGrid x:Name="gridAuthors" d:ItemsSource="{d:SampleData ItemCount=8}"  ColumnWidth="*" Margin="5,240,5,10" Height="186" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Microsoft Himalaya" FontSize="17"/>
+        <DataGrid x:Name="gridAuthors" d:ItemsSource="{d:SampleData ItemCount=8}"  ColumnWidth="*" Margin="5,240,5,10" Height="186" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="13" FontFamily="Times New Roman"/>
     </Grid>
 </Window>

@@ -10,12 +10,12 @@
         <Label Content="Cities" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="24"/>
         <WrapPanel>
             <Label Content="Add new city:" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="22"/>
-            <TextBox x:Name="cityInput" HorizontalAlignment="Left" Margin="2,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="16" FontFamily="Microsoft Himalaya"/>
+            <TextBox x:Name="cityInput" HorizontalAlignment="Left" Margin="2,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
             <Button Click="BtnAddNewCity" Content="Add City" HorizontalAlignment="Left" Margin="15,58,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
         </WrapPanel>
         <WrapPanel>
             <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="5,190,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
         </WrapPanel>
-        <DataGrid x:Name="gridCities" d:ItemsSource="{d:SampleData ItemCount=8}" ColumnWidth="*" Margin="5,240,5,10" Height="186" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Microsoft Himalaya" FontSize="17"/>
+        <DataGrid x:Name="gridCities" d:ItemsSource="{d:SampleData ItemCount=8}" ColumnWidth="*" Margin="5,240,5,10" Height="186" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="13" FontFamily="Times New Roman"/>
     </Grid>
 </Window>
