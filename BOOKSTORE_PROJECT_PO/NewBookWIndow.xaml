@@ -10,22 +10,22 @@
         <Label Content="BOOKS " HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="24"/>
         <Grid HorizontalAlignment="Center" Width="500">
             <WrapPanel>
-                <Label Content="Title: " HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-                <TextBox x:Name="title" HorizontalAlignment="Left" Margin="20,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="16" FontFamily="Microsoft Himalaya"/>
+                <Label Content="Title: " HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="13" FontFamily="Times New Roman"/>
+                <TextBox x:Name="title" HorizontalAlignment="Left" Margin="20,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
                 <Label Content="Published Year: " HorizontalAlignment="Left" Margin="115,50,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-                <DatePicker x:Name="datePicker" SelectedDateFormat="Short" HorizontalAlignment="Right" Margin="0,49,0,0" Height="25" VerticalAlignment="Top" FontSize="13" FontFamily="Segoe UI Symbol"/>
+                <DatePicker x:Name="datePicker" SelectedDateFormat="Short" HorizontalAlignment="Right" Margin="0,49,0,0" Height="25" VerticalAlignment="Top" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Content="Author: " HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-                <ComboBox SelectedIndex="0" x:Name="comboBoxAuthor" HorizontalAlignment="Left" Margin="8,83,0,0" VerticalAlignment="Top" Width="111" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
+                <ComboBox SelectedIndex="0" x:Name="comboBoxAuthor" HorizontalAlignment="Left" Margin="8,83,0,0" VerticalAlignment="Top" Width="111" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Content="Status: " HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-                <ComboBox SelectedIndex="0" x:Name="comboBoxStatus" HorizontalAlignment="Left" Margin="13,113,0,0" VerticalAlignment="Top" Width="111" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
+                <ComboBox SelectedIndex="0" x:Name="comboBoxStatus" HorizontalAlignment="Left" Margin="13,113,0,0" VerticalAlignment="Top" Width="111" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Content="Quantity: " HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-                <ComboBox SelectedIndex="0" SelectedValuePath="Content" x:Name="comboBoxQuantity" HorizontalAlignment="Left" Margin="0,143,5,0" VerticalAlignment="Top" Width="111" Height="19" FontSize="18" FontFamily="Microsoft Himalaya">
+                <ComboBox SelectedIndex="0" SelectedValuePath="Content" x:Name="comboBoxQuantity" HorizontalAlignment="Left" Margin="0,143,5,0" VerticalAlignment="Top" Width="111" Height="19" FontSize="13" FontFamily="Times New Roman">
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
                     <ComboBoxItem Content="3"/>
@@ -40,13 +40,13 @@
                     <ComboBoxItem Content="12"/>
                 </ComboBox>
                 <Label Content="Last Customer: " HorizontalAlignment="Left" Margin="5,140,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-                <ComboBox SelectedIndex="1" x:Name="comboBoxCustomer" HorizontalAlignment="Left" Margin="0,143,0,0" VerticalAlignment="Top" Width="125" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
+                <ComboBox SelectedIndex="1" x:Name="comboBoxCustomer" HorizontalAlignment="Left" Margin="0,143,0,0" VerticalAlignment="Top" Width="125" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
             <WrapPanel>
                 <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="50" Height="20"/>
                 <Button Click="BtnAddNewBook" Content="Add Book" HorizontalAlignment="Center" Margin="20,200,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
             </WrapPanel>
         </Grid>
-        <DataGrid x:Name="gridBooks" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="5,262,5,10" HorizontalAlignment="Center" FontFamily="Microsoft Himalaya" FontSize="17" Width="662"/>
+        <DataGrid x:Name="gridBooks" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="5,262,5,10" HorizontalAlignment="Center" FontSize="13" FontFamily="Times New Roman" Width="662"/>
     </Grid>
 </Window>

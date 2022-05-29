@@ -11,11 +11,11 @@
             <Label Content="CUSTOMERS " HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="24"/>
             <WrapPanel>
                 <Label Content="First Name: " HorizontalAlignment="Left" Margin="5,40,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-                <TextBox x:Name="firstName" HorizontalAlignment="Left" Margin="0,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="16" FontFamily="Microsoft Himalaya"/>
+                <TextBox x:Name="firstName" HorizontalAlignment="Left" Margin="0,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Content="Last Name: " HorizontalAlignment="Left" Margin="5,65,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-                <TextBox x:Name="lastName" HorizontalAlignment="Left" Margin="2,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="16" FontFamily="Microsoft Himalaya"/>
+                <TextBox x:Name="lastName" HorizontalAlignment="Left" Margin="2,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Content="Email: " HorizontalAlignment="Left" Margin="5,90,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
@@ -30,6 +30,6 @@
                 <Button Click="BtnAddNewCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
             </WrapPanel>
         </Grid>
-        <DataGrid x:Name="gridCustomer" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="5,198,5,10" HorizontalAlignment="Center" FontFamily="Microsoft Himalaya" FontSize="17"/>
+        <DataGrid x:Name="gridCustomer" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="5,198,5,10" HorizontalAlignment="Center" FontSize="13" FontFamily="Times New Roman"/>
     </Grid>
 </Window>
