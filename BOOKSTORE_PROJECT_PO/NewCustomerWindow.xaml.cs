@@ -1,4 +1,5 @@
-﻿using BOOKSTORE_PROJECT_PO.Dals;
+﻿using BOOKSTORE_PROJECT_PO.Dal_Models;
+using BOOKSTORE_PROJECT_PO.Dals;
 using System;
 using System.Windows;
 
@@ -46,5 +47,17 @@ namespace BOOKSTORE_PROJECT_PO
         }
 
         private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
+
+        private void gridCustomer_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (this.gridCustomer.SelectedIndex >= 0)
+            {
+                if (this.gridCustomer.SelectedItems.Count >= 0)
+                {
+                    var customer = (CustomerDalModel)this.gridCustomer.SelectedItems[0];
+                    this.emailUpdate.Text = customer.Email;
+                }
+            }
+        }
     }
 }
