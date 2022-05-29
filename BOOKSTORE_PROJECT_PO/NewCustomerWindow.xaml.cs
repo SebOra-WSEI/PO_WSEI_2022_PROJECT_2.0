@@ -27,8 +27,8 @@ namespace BOOKSTORE_PROJECT_PO
         {
             try
             {
-                if (firstName.Text.Length == 0 ||lastName.Text.Length == 0 || email.Text.Length == 0) 
-                    throw new Exception();
+                if (firstName.Text.Length == 0 || lastName.Text.Length == 0 || email.Text.Length == 0)
+                    throw new Exception("Fields can not be empty");
 
                 customerDal.Add(
                     firstName.Text,
@@ -37,7 +37,10 @@ namespace BOOKSTORE_PROJECT_PO
                     int.Parse(comboBoxData.SelectedValue.ToString())
                     );
             }
-            catch (Exception) { new ErrorWindow().Show(); }
+            catch (Exception err)
+            {
+                MessageBox.Show($"Error: { err.Message}");
+            }
 
             LoadCustomerData();
         }

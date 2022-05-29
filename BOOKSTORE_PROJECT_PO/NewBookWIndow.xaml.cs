@@ -45,7 +45,10 @@ namespace BOOKSTORE_PROJECT_PO
                     int.Parse(comboBoxCustomer.SelectedValue.ToString())
                     );
             }
-            catch (Exception) { new ErrorWindow().Show(); }
+            catch (Exception) 
+            {
+                MessageBox.Show("Error: Fields can not be empty");
+            }
 
             LoadBooksData();
         }

@@ -24,11 +24,15 @@ namespace BOOKSTORE_PROJECT_PO
         {
             try 
             {
-                if (cityInput.Text.Length == 0) throw new Exception();
+                if (cityInput.Text.Length == 0) 
+                    throw new Exception("Fields can not be empty");
 
                 cityDal.Add(cityInput.Text); 
             }
-            catch (Exception) { new ErrorWindow().Show(); }
+            catch (Exception err)
+            {
+                MessageBox.Show($"Error: {err.Message}");
+            }
 
             LoadCityData();
         }

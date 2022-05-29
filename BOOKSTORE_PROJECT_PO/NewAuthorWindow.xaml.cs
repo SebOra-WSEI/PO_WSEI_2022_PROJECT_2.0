@@ -24,14 +24,17 @@ namespace BOOKSTORE_PROJECT_PO
             try
             {
                 if (authorName.Text.Length == 0 || authorLastName.Text.Length == 0) 
-                    throw new Exception();
+                    throw new Exception("Fields can not be empty");
 
                 authorDal.Add(
                     authorName.Text,
                     authorLastName.Text
                     );
             }
-            catch (Exception) { new ErrorWindow().Show(); }
+            catch (Exception err) 
+            {
+                MessageBox.Show($"Error: {err.Message}");
+            }
 
             LoadAuthorData();
         }
