@@ -23,7 +23,7 @@
             </WrapPanel>
             <WrapPanel>
                 <Label Content="City: " HorizontalAlignment="Left" Margin="5,119,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-                <ComboBox SelectedIndex="0" x:Name="comboBoxData" HorizontalAlignment="Left" Margin="33,120,0,0" VerticalAlignment="Top" Width="111" Height="19" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="18" FontFamily="Microsoft Himalaya"/>
+                <ComboBox SelectedIndex="0" x:Name="comboBoxData" HorizontalAlignment="Left" Margin="33,120,0,0" VerticalAlignment="Top" Width="111" Height="20" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
             <WrapPanel Margin="0,0,0,10">
                 <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="15,160,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
