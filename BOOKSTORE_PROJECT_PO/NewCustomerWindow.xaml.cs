@@ -46,18 +46,33 @@ namespace BOOKSTORE_PROJECT_PO
             LoadCustomerData();
         }
 
-        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
-
+        protected int customerID;
         private void gridCustomer_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (this.gridCustomer.SelectedIndex >= 0)
             {
-                if (this.gridCustomer.SelectedItems.Count >= 0)
+                try
                 {
-                    var customer = (CustomerDalModel)this.gridCustomer.SelectedItems[0];
-                    this.emailUpdate.Text = customer.Email;
+                    if (this.gridCustomer.SelectedItems.Count >= 0)
+                    {
+                        var customer = (CustomerDalModel)this.gridCustomer.SelectedItems[0];
+                        this.nameUpdate.Text = customer.Name;
+                        this.emailUpdate.Text = customer.Email;
+                        this.comboBoxCityUpdate.ItemsSource = cityDal.getCityList;
+                        //this.comboBoxCityUpdate.SelectedIndex = customer.City;
+
+                        this.customerID = customerDal.GetId(customer.Email);
+                    }
                 }
+                catch (InvalidCastException) { }
             }
         }
+
+        private void BtnAddUpdateCustomer(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
     }
 }

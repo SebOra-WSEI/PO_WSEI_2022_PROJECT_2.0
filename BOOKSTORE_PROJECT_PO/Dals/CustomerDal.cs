@@ -16,7 +16,7 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                 {
                     Name = customer.FirstName + " " + customer.LastName,
                     Email = customer.Email,
-                    City = customer.CityId
+                    City = customer.Cities.CityName
                 }).ToList();
 
         public IList<CustomerDalModelForSelector> getCustomerForSelecorList =>
@@ -40,5 +40,9 @@ namespace BOOKSTORE_PROJECT_PO.Dals
             db.Customers.Add(newCustomer);
             db.SaveChanges();
         }
+
+        internal int GetId(string email) => (
+            from cus in db.Customers where cus.Email == email select cus.ID
+            ).FirstOrDefault();
     }
 }
