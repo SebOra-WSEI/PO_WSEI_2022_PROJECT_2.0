@@ -3,8 +3,6 @@ using BOOKSTORE_PROJECT_PO.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BOOKSTORE_PROJECT_PO.Dals
 {
@@ -18,10 +16,10 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                 {
                     Title = book.Title,
                     PublishedYear = book.PublishedYear,
-                    Author = book.AuthorId,
+                    Author = book.Authors.FirstName + " " + book.Authors.LastName,
                     Quantity = book.Quantity,
-                    Status = book.StatusId,
-                    LastCustomer = book.CustomerId
+                    Status = book.Status.StatusName,
+                    LastCustomer = book.Customers.FirstName + " " + book.Customers.LastName,
                 }).ToList();
 
         public void Add(string title, DateTime date, int qtl, int authorId, int statusId, int lastCustomerId)

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BOOKSTORE_PROJECT_PO"
         mc:Ignorable="d"
-        Title="CUSTOMERS" Height="465" Width="516">
+        Title="CUSTOMERS" Height="502" Width="546">
     <Grid>
-        <Grid HorizontalAlignment="Center" Width="350">
-            <Label Content="CUSTOMERS " HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="24"/>
+        <Label Content="CUSTOMERS " HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="24"/>
+        <Grid HorizontalAlignment="Left" Width="350" Margin="0,10,0,0">
             <WrapPanel>
                 <Label Content="First Name: " HorizontalAlignment="Left" Margin="5,40,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
                 <TextBox x:Name="firstName" HorizontalAlignment="Left" Margin="0,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
@@ -25,15 +25,28 @@
                 <Label Content="City: " HorizontalAlignment="Left" Margin="5,119,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
                 <ComboBox SelectedIndex="0" x:Name="comboBoxData" HorizontalAlignment="Left" Margin="33,120,0,0" VerticalAlignment="Top" Width="111" Height="20" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
-            <WrapPanel Margin="0,0,0,10">
-                <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="15,160,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
-                <Button Click="BtnAddNewCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
+            <WrapPanel>
+                <Button Click="BtnAddNewCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="75,160,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
             </WrapPanel>
         </Grid>
-        <WrapPanel>
-            <Label Content="Email:" HorizontalAlignment="Left" Margin="300,40,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
-            <TextBox x:Name="emailUpdate" HorizontalAlignment="Left" Margin="0,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
+        <Grid HorizontalAlignment="Right" Width="250" Margin="0,10,0,0">
+            <WrapPanel>
+                <Label Content="Name: " HorizontalAlignment="Right" Margin="5,65,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" />
+                <TextBox x:Name="nameUpdate" HorizontalAlignment="Right" Margin="26,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="13" FontFamily="Times New Roman"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Email: " HorizontalAlignment="Right" Margin="5,90,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+                <TextBox x:Name="emailUpdate" HorizontalAlignment="Right" Margin="26,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="16" FontFamily="Microsoft Himalaya"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="City: " HorizontalAlignment="Right" Margin="5,119,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+                <ComboBox x:Name="comboBoxCityUpdate" HorizontalAlignment="Right" Margin="33,120,0,0" VerticalAlignment="Top" Width="111" Height="20" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="13" FontFamily="Times New Roman"/>
+                <Button Click="BtnAddUpdateCustomer" Content="Update Customer" HorizontalAlignment="Right" Margin="75,11,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
+            </WrapPanel>
+        </Grid>
+        <WrapPanel >
+            <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="5,230,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
         </WrapPanel>
-        <DataGrid x:Name="gridCustomer" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="5,198,5,10" HorizontalAlignment="Center" FontSize="13" FontFamily="Times New Roman" SelectionChanged="gridCustomer_SelectionChanged"/>
+        <DataGrid x:Name="gridCustomer" d:ItemsSource="{d:SampleData ItemCount=10}" ColumnWidth="*" Margin="0,264,0,10" HorizontalAlignment="Center" FontSize="13" FontFamily="Times New Roman" SelectionChanged="gridCustomer_SelectionChanged"/>
     </Grid>
 </Window>
