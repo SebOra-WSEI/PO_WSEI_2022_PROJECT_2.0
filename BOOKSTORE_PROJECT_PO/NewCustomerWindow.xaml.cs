@@ -60,9 +60,6 @@ namespace BOOKSTORE_PROJECT_PO
         }
 
         protected string customerEmail;
-        ////////////////////////////////////////////////////////////////////
-        protected int updatedCityId;
-        ////////////////////////////////////////////////////////////////////
         private void gridCustomer_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (this.gridCustomer.SelectedIndex >= 0)
@@ -71,13 +68,9 @@ namespace BOOKSTORE_PROJECT_PO
                 {
                     if (this.gridCustomer.SelectedItems.Count >= 0)
                     {
-
                         var customer = (CustomerDalModel)this.gridCustomer.SelectedItems[0];
 
                         customerEmail = customer.Email;
-                        ////////////////////////////////////////////////////////////////////
-                        updatedCityId = cityDal.GetCityID(customer.City);
-                        ////////////////////////////////////////////////////////////////////
 
                         this.nameUpdate.Text = customer.Name;
                         this.emailUpdate.Text = customer.Email;
@@ -96,9 +89,10 @@ namespace BOOKSTORE_PROJECT_PO
                 if (nameUpdate.Text.Length == 0 || emailUpdate.Text.Length == 0)
                     throw new Exception("Fields can not be empty");
 
-                ////////////////////////////////////////////////////////////////////
-                customerDal.Update(customerEmail, emailUpdate.Text, updatedCityId);
-                ////////////////////////////////////////////////////////////////////
+                string newEmail = emailUpdate.Text;
+                int newCityId = int.Parse(comboBoxCityUpdate.SelectedValue.ToString());
+
+                customerDal.Update(customerEmail, newEmail, newCityId);
             }
             catch (Exception err)
             {
