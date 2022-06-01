@@ -29,9 +29,9 @@ namespace BOOKSTORE_PROJECT_PO
 
         }
 
-        private void LoadBooksData() => gridBooks.ItemsSource = bookDal.getBooksList;
-
         private void BtnLoadData(object sender, RoutedEventArgs e) => LoadBooksData();
+
+        private void LoadBooksData() => this.gridBooks.ItemsSource = bookDal.getBooksList;
     }
 }
 

@@ -41,8 +41,19 @@ namespace BOOKSTORE_PROJECT_PO.Dals
             db.SaveChanges();
         }
 
-        internal int GetId(string email) => (
-            from cus in db.Customers where cus.Email == email select cus.ID
-            ).FirstOrDefault();
+        internal void Update(string email, string emailToUpdate, int cityId)
+        {
+            var customerToUpdate = (
+                from customer in db.Customers where customer.Email == email select customer
+                ).FirstOrDefault();
+
+            if (customerToUpdate != null)
+            {
+                customerToUpdate.Email = emailToUpdate;
+                customerToUpdate.CityId = cityId;
+            }
+
+            db.SaveChanges();
+        }
     }
 }

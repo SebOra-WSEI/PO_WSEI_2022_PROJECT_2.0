@@ -16,18 +16,20 @@ namespace BOOKSTORE_PROJECT_PO
             LoadCityData();
         }
 
-        private void LoadCityData() => gridCities.ItemsSource = cityDal.getCityNameList;
-
         private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
+
+        private void LoadCityData() => this.gridCities.ItemsSource = cityDal.getCityNameList;
+
+        private void clearInput() => this.cityInput.Text = "";
 
         private void BtnAddNewCity(object sender, RoutedEventArgs e)
         {
             try 
             {
-                if (cityInput.Text.Length == 0) 
+                if (this.cityInput.Text.Length == 0) 
                     throw new Exception("Fields can not be empty");
 
-                cityDal.Add(cityInput.Text); 
+                cityDal.Add(cityInput.Text);
             }
             catch (Exception err)
             {
@@ -35,6 +37,7 @@ namespace BOOKSTORE_PROJECT_PO
             }
 
             LoadCityData();
+            clearInput();
         }
     }
 }

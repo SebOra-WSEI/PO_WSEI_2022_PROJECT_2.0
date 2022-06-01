@@ -24,7 +24,7 @@ namespace BOOKSTORE_PROJECT_PO
                     City = city.CityName 
                 }).ToList();
 
-        internal void Add( string city)
+        internal void Add(string city)
         {
             var newCity = new Cities()
             {
@@ -34,5 +34,9 @@ namespace BOOKSTORE_PROJECT_PO
             db.Cities.Add(newCity);
             db.SaveChanges();
         }
+
+        internal int GetCityID(string cityName) => (
+            from city in db.Cities where city.CityName == cityName select city.ID
+            ).FirstOrDefault();
     }
 }
