@@ -17,7 +17,15 @@ namespace BOOKSTORE_PROJECT_PO
             LoadAuthorData();
         }
 
-        private void LoadAuthorData() => gridAuthors.ItemsSource = authorDal.getAuthorNameList;
+        private void LoadAuthorData() => this.gridAuthors.ItemsSource = authorDal.getAuthorNameList;
+
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
+
+        private void clearInput()
+        {
+            this.authorName.Text = "";
+            this.authorLastName.Text = "";
+        }
 
         private void BtnAddAuthor(object sender, RoutedEventArgs e)
         {
@@ -37,8 +45,7 @@ namespace BOOKSTORE_PROJECT_PO
             }
 
             LoadAuthorData();
+            clearInput();
         }
-
-        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
     }
 }

@@ -32,7 +32,7 @@
         <Grid HorizontalAlignment="Right" Width="250" Margin="0,10,0,0">
             <WrapPanel>
                 <Label Content="Name: " HorizontalAlignment="Right" Margin="5,65,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" />
-                <TextBox x:Name="nameUpdate" HorizontalAlignment="Right" Margin="26,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="13" FontFamily="Times New Roman"/>
+                <TextBox IsEnabled="False" x:Name="nameUpdate" HorizontalAlignment="Right" Margin="26,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Content="Email: " HorizontalAlignment="Right" Margin="5,90,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>

@@ -9,7 +9,6 @@ namespace BOOKSTORE_PROJECT_PO
     /// </summary>
     public partial class NewBookWIndow : Window
     {
-        CityDal cityDal = new CityDal();
         AuthorDal authorDal = new AuthorDal();
         StatusDal statusDal = new StatusDal();
         CustomerDal customerDal = new CustomerDal();
@@ -24,13 +23,15 @@ namespace BOOKSTORE_PROJECT_PO
             LoadBooksData();
         }
 
-        private void LoadSelectorAuthorData() => comboBoxAuthor.ItemsSource = authorDal.getAuthorList;
+        private void LoadSelectorAuthorData() => this.comboBoxAuthor.ItemsSource = authorDal.getAuthorList;
 
-        private void LoadSelectorStatusData() => comboBoxStatus.ItemsSource = statusDal.getStatusList;
+        private void LoadSelectorStatusData() => this.comboBoxStatus.ItemsSource = statusDal.getStatusList;
 
-        private void LoadSelectorCustomerData() => comboBoxCustomer.ItemsSource = customerDal.getCustomerForSelecorList;
+        private void LoadSelectorCustomerData() => this.comboBoxCustomer.ItemsSource = customerDal.getCustomerForSelecorList;
 
-        private void LoadBooksData() => gridBooks.ItemsSource = bookDal.getBooksList;
+        private void LoadBooksData() => this.gridBooks.ItemsSource = bookDal.getBooksList;
+
+        private void clearInput() => this.title.Text = "";
 
         private void BtnAddNewBook(object sender, RoutedEventArgs e)
         {
@@ -51,6 +52,7 @@ namespace BOOKSTORE_PROJECT_PO
             }
 
             LoadBooksData();
+            clearInput();
         }
 
         private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
