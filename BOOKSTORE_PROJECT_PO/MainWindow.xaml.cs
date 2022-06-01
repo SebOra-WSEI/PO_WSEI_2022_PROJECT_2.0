@@ -29,22 +29,7 @@ namespace BOOKSTORE_PROJECT_PO
 
         }
 
-        private void BtnLoadData(object sender, RoutedEventArgs e) => LoadBooksData();
-
         private void LoadBooksData() => this.gridBooks.ItemsSource = bookDal.getBooksList;
+        private void BtnLoadData(object sender, RoutedEventArgs e) => LoadBooksData();
     }
 }
-
-//var booksQuery =
-//    from books in db.Books
-//    join author in db.Authors on books.AuthorId equals author.ID
-//    join status in db.Status on books.StatusId equals status.ID
-//    join customer in db.Customers on books.CustomerId equals customer.ID
-//    select new
-//    {
-//        Title = books.Title,
-//        Author = author.FirstName,
-//        PublishedYear = books.PublishedYear.Year,
-//        Status = status.StatusName,
-//        LastCustomer = customer.FirstName
-//    };

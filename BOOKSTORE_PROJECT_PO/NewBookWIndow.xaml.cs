@@ -31,6 +31,8 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void LoadBooksData() => this.gridBooks.ItemsSource = bookDal.getBooksList;
 
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
+
         private void clearInput() => this.title.Text = "";
 
         private void BtnAddNewBook(object sender, RoutedEventArgs e)
@@ -54,7 +56,5 @@ namespace BOOKSTORE_PROJECT_PO
             LoadBooksData();
             clearInput();
         }
-
-        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
     }
 }
