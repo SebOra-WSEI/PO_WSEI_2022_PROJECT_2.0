@@ -82,7 +82,7 @@ namespace BOOKSTORE_PROJECT_PO
             }
         }
 
-        private void BtnAddUpdateCustomer(object sender, RoutedEventArgs e)
+        private void BtnUpdateCustomer(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -101,6 +101,12 @@ namespace BOOKSTORE_PROJECT_PO
 
             LoadCustomerData();
             clearInput();
+        }
+
+        private void BtnDeleteCustomer(object sender, RoutedEventArgs e)
+        {
+            customerDal.Delete(customerEmail);
+            LoadCustomerData();
         }
     }
 }

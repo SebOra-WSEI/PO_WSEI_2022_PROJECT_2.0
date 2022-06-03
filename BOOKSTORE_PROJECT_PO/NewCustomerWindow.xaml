@@ -41,7 +41,10 @@
             <WrapPanel>
                 <Label Content="City: " HorizontalAlignment="Right" Margin="5,119,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
                 <ComboBox x:Name="comboBoxCityUpdate" HorizontalAlignment="Right" Margin="33,120,0,0" VerticalAlignment="Top" Width="111" Height="20" DisplayMemberPath="Name" SelectedValuePath="ID" FontSize="13" FontFamily="Times New Roman"/>
-                <Button Click="BtnAddUpdateCustomer" Content="Update Customer" HorizontalAlignment="Right" Margin="75,11,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
+                <Button Click="BtnUpdateCustomer" Content="Update Customer" HorizontalAlignment="Right" Margin="15,11,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Button Click="BtnDeleteCustomer" Content="Delete Customer" HorizontalAlignment="Right" Margin="130,158,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
             </WrapPanel>
         </Grid>
         <WrapPanel >

@@ -9,19 +9,19 @@ namespace BOOKSTORE_PROJECT_PO
     {
         private BookstoreDBEntities db = new BookstoreDBEntities();
 
-        public IList<CityDalModelForSelector> getCityList =>  
+        public IList<CityDalModelForSelector> getCityList =>
             db.Cities.Select(
-                city => new CityDalModelForSelector 
-                { 
-                    ID = city.ID, 
-                    Name = city.CityName 
+                city => new CityDalModelForSelector
+                {
+                    ID = city.ID,
+                    Name = city.CityName
                 }).ToList();
 
         public IList<CityDalModel> getCityNameList =>
             db.Cities.Select(
-                city => new CityDalModel 
-                { 
-                    City = city.CityName 
+                city => new CityDalModel
+                {
+                    City = city.CityName
                 }).ToList();
 
         internal void Add(string city)
@@ -35,8 +35,17 @@ namespace BOOKSTORE_PROJECT_PO
             db.SaveChanges();
         }
 
-        internal int GetCityID(string cityName) => (
-            from city in db.Cities where city.CityName == cityName select city.ID
-            ).FirstOrDefault();
+        internal int GetCityID(string cityName) => db.Cities.Where(city => city.CityName == cityName).Select(city => city.ID).FirstOrDefault();
+
+        internal void Delete(string city)
+        {
+            var cityToDelete = db.Cities
+              .Where(cty => cty.CityName == city)
+              .Select(cty => cty)
+              .FirstOrDefault();
+
+            db.Cities.Remove(cityToDelete);
+            db.SaveChanges();
+        }
     }
 }
