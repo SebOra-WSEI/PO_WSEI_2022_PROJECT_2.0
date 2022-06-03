@@ -1,3 +1,5 @@
+using System;
+
 namespace BOOKSTORE_PROJECT_PO.Models
 {   
     public partial class Books
@@ -8,7 +10,7 @@ namespace BOOKSTORE_PROJECT_PO.Models
         public int Quantity { get; set; }
         public int AuthorId { get; set; }
         public int StatusId { get; set; }
-        public int CustomerId { get; set; }
+        public Nullable<int> CustomerId { get; set; }
     
         public virtual Authors Authors { get; set; }
         public virtual Customers Customers { get; set; }

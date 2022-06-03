@@ -1,4 +1,5 @@
-﻿using BOOKSTORE_PROJECT_PO.Dals;
+﻿using BOOKSTORE_PROJECT_PO.Dal_Models;
+using BOOKSTORE_PROJECT_PO.Dals;
 using System;
 using System.Windows;
 
@@ -55,6 +56,29 @@ namespace BOOKSTORE_PROJECT_PO
 
             LoadBooksData();
             clearInput();
+        }
+
+        protected string bookTitle;
+        private void gridBooks_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (this.gridBooks.SelectedIndex >= 0)
+            {
+                try
+                {
+                    if (this.gridBooks.SelectedItems.Count >= 0)
+                    {
+                        var book = (BookDalModel)this.gridBooks.SelectedItems[0];
+                        bookTitle = book.Title;
+                    }
+                }
+                catch (InvalidCastException) { }
+            }
+        }
+
+        private void BtnDeleteNewBook(object sender, RoutedEventArgs e)
+        {
+            bookDal.Delete(bookTitle);
+            LoadBooksData();
         }
     }
 }

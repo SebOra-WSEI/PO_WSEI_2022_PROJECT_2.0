@@ -15,7 +15,7 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                 book => new BookDalModel
                 {
                     Title = book.Title,
-                    PublishedYear = book.PublishedYear,
+                    PublishedYear = book.PublishedYear.Year,
                     Author = book.Authors.FirstName + " " + book.Authors.LastName,
                     Quantity = book.Quantity,
                     Status = book.Status.StatusName,
@@ -35,6 +35,17 @@ namespace BOOKSTORE_PROJECT_PO.Dals
             };
 
             db.Books.Add(newBook);
+            db.SaveChanges();
+        }
+
+        public void Delete(string title)
+        {
+            var bookToDelete = db.Books
+                .Where(book => book.Title == title)
+                .Select(book => book)
+                .FirstOrDefault();
+
+            db.Books.Remove(bookToDelete);
             db.SaveChanges();
         }
     }

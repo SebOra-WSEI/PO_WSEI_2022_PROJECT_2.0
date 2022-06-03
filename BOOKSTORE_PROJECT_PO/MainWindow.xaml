@@ -19,7 +19,7 @@
             <Button Content="Load Data" Click="BtnLoadData" HorizontalAlignment="Left" Margin="10,210,0,0" Width="95" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
         <Grid>
-            <DataGrid x:Name="gridBooks" d:ItemsSource="{d:SampleData ItemCount=15}" ColumnWidth="*" Margin="5,240,5,5" Height="247" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="13" FontFamily="Times New Roman" Width="766"/>
+            <DataGrid x:Name="gridBooks"  d:ItemsSource="{d:SampleData ItemCount=15}" ColumnWidth="*" Margin="5,240,5,5" Height="247" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="13" FontFamily="Times New Roman" Width="766"/>
         </Grid>
     </Grid>
 </Window>

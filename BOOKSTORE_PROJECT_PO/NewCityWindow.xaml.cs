@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BOOKSTORE_PROJECT_PO.Dal_Models;
+using System;
 using System.Windows;
 
 namespace BOOKSTORE_PROJECT_PO
@@ -38,6 +39,30 @@ namespace BOOKSTORE_PROJECT_PO
 
             LoadCityData();
             clearInput();
+        }
+
+        protected string cityToRemove;
+        private void gridCities_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (this.gridCities.SelectedIndex >= 0)
+            {
+                try
+                {
+                    if (this.gridCities.SelectedItems.Count >= 0)
+                    {
+                        var city = (CityDalModel)this.gridCities.SelectedItems[0];
+                        cityToRemove = city.City;
+
+                    }
+                }
+                catch (InvalidCastException) { }
+            }
+        }
+
+        private void BtnDeleteCity(object sender, RoutedEventArgs e)
+        {
+            cityDal.Delete(cityToRemove);
+            LoadCityData();
         }
     }
 }

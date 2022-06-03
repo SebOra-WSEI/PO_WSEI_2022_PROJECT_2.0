@@ -10,7 +10,7 @@ namespace BOOKSTORE_PROJECT_PO.Dals
     {
         private BookstoreDBEntities db = new BookstoreDBEntities();
 
-        public IList<CustomerDalModel> getCustomerList => 
+        public IList<CustomerDalModel> getCustomerList =>
             db.Customers.Select(
                 customer => new CustomerDalModel
                 {
@@ -43,9 +43,10 @@ namespace BOOKSTORE_PROJECT_PO.Dals
 
         internal void Update(string email, string emailToUpdate, int cityId)
         {
-            var customerToUpdate = (
-                from customer in db.Customers where customer.Email == email select customer
-                ).FirstOrDefault();
+            var customerToUpdate = db.Customers
+                .Where(cus => cus.Email == email)
+                .Select(cus => cus)
+                .Single();
 
             if (customerToUpdate != null)
             {
@@ -53,6 +54,25 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                 customerToUpdate.CityId = cityId;
             }
 
+            db.SaveChanges();
+        }
+
+        internal void Delete(string email)
+        {
+            var customerToDelete =
+                db.Customers
+                .Where(cus => cus.Email == email)
+                .Select(cus => cus)
+                .Single();
+            db.Books
+                .Where(book => book.CustomerId == customerToDelete.ID)
+                .ToList()
+                .ForEach(x =>
+                {
+                    x.CustomerId = null;
+                });
+
+            db.Customers.Remove(customerToDelete);
             db.SaveChanges();
         }
     }
