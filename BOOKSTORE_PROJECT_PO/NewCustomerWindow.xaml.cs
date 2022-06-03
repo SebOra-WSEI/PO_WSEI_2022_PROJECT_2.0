@@ -1,5 +1,6 @@
 ﻿using BOOKSTORE_PROJECT_PO.Dal_Models;
 using BOOKSTORE_PROJECT_PO.Dals;
+using BOOKSTORE_PROJECT_PO.Validators;
 using System;
 using System.Windows;
 
@@ -12,7 +13,8 @@ namespace BOOKSTORE_PROJECT_PO
     {
         CityDal cityDal = new CityDal();
         CustomerDal customerDal = new CustomerDal();
-
+        CustomerValidator customerValidator = new CustomerValidator();
+        
         public NewCustomerWindow()
         {
             InitializeComponent();
@@ -38,11 +40,16 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnAddNewCustomer(object sender, RoutedEventArgs e)
         {
+          
+            var validateResult = customerValidator.Validate(firstName.Text, lastName.Text, email.Text);
+            if (!validateResult.IsCorrect)
+            {
+                MessageBox.Show($"Validaton error: { validateResult.ErrorMessage}");
+                return;
+            }
+
             try
             {
-                if (firstName.Text.Length == 0 || lastName.Text.Length == 0 || email.Text.Length == 0)
-                    throw new Exception("Fields can not be empty");
-
                 customerDal.Add(
                     firstName.Text,
                     lastName.Text,
