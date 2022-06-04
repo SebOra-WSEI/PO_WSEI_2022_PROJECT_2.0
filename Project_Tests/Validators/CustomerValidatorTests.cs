@@ -165,6 +165,17 @@ namespace Project_Tests
         }
 
         [Test]
+        public void WhenEmailHasCorrectShouldReturnOk()
+        {
+            // Act
+            var validationResult = validator.Validate("aaaa", "aaaa", "aaaa@wp.pl");
+
+            // Assert
+            Assert.IsTrue(validationResult.IsCorrect);
+            Assert.AreEqual("", validationResult.ErrorMessage);
+        }
+
+        [Test]
         public void WhenEmailIsEmptyShouldReturnEmptyFieldErrorMessage()
         {
             // Act
@@ -206,6 +217,17 @@ namespace Project_Tests
             // Assert
             Assert.IsFalse(validationResult.IsCorrect);
             Assert.AreEqual("Email too short. Minimal lenght is equal 10", validationResult.ErrorMessage);
+        }
+
+        [Test]
+        public void WhenEmailHasInCorrectShouldReturnOk()
+        {
+            // Act
+            var validationResult = validator.Validate("aaaa", "aaaa", "aaaa!wp.pl");
+
+            // Assert
+            Assert.IsFalse(validationResult.IsCorrect);
+            Assert.AreEqual("Email has incorrect syntax. Please provide correct email", validationResult.ErrorMessage);
         }
     }
 }
