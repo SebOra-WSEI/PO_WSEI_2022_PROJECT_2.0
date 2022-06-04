@@ -40,7 +40,6 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnAddNewCustomer(object sender, RoutedEventArgs e)
         {
-          
             var validateResult = customerValidator.Validate(firstName.Text, lastName.Text, email.Text);
             if (!validateResult.IsCorrect)
             {
