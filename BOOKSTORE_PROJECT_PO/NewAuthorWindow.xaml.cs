@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using BOOKSTORE_PROJECT_PO.Dals;
+using BOOKSTORE_PROJECT_PO.Validators;
 
 namespace BOOKSTORE_PROJECT_PO
 {
@@ -10,6 +11,7 @@ namespace BOOKSTORE_PROJECT_PO
     public partial class NewAuthorWindow : Window
     {
         AuthorDal authorDal = new AuthorDal();
+        AuthorValidator authorValidator = new AuthorValidator();
 
         public NewAuthorWindow()
         {
@@ -29,6 +31,13 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnAddAuthor(object sender, RoutedEventArgs e)
         {
+            var validateResult = authorValidator.Validate(authorName.Text, authorLastName.Text);
+            if (!validateResult.IsCorrect)
+            {
+                MessageBox.Show($"Validaton error: { validateResult.ErrorMessage}");
+                return;
+            }
+
             try
             {
                 if (authorName.Text.Length == 0 || authorLastName.Text.Length == 0) 

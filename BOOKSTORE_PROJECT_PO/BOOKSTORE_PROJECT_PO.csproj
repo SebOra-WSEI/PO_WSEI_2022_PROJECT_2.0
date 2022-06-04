@@ -91,6 +91,7 @@
     <Compile Include="StatusWindow.xaml.cs">
       <DependentUpon>StatusWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validators\AuthorValidator.cs" />
     <Compile Include="Validators\CommonValidator.cs" />
     <Compile Include="Validators\CustomerValidator.cs" />
     <Page Include="MainWindow.xaml">

@@ -3,18 +3,18 @@ using NUnit.Framework;
 
 namespace Project_Tests
 {
-    public class CustomerValidatorTests
+    public class AuthorValidatorTests
     {
-        private CustomerValidator validator = new CustomerValidator();
+        private AuthorValidator validator = new AuthorValidator();
 
         // First Name test
         [Test]
         public void WhenFirstNameHas30CharsShouldReturnOk()
         {
             // Act
-            var validationResult = validator.Validate("aaaaaaaaaabbbbbbbbbbcccccccccc", "aaaa", "aaaa@wp.pl");
+            var validationResult = validator.Validate("aaaaaaaaaabbbbbbbbbbcccccccccc", "aaaa");
 
-           // Assert
+            // Assert
             Assert.IsTrue(validationResult.IsCorrect);
             Assert.AreEqual("", validationResult.ErrorMessage);
         }
@@ -23,7 +23,7 @@ namespace Project_Tests
         public void WhenFirstNameHas4CharactersShouldReturnOk()
         {
             // Act
-            var validationResult = validator.Validate("aaaa", "aaaa", "aaaa@wp.pl");
+            var validationResult = validator.Validate("aaaa", "aaaa");
 
             // Assert
             Assert.IsTrue(validationResult.IsCorrect);
@@ -34,7 +34,7 @@ namespace Project_Tests
         public void WhenFirstNameIsEmptyShouldReturnEmptyFieldErrorMessage()
         {
             // Act
-            var validationResult = validator.Validate("", "aaa", "aaa@wp.pl");
+            var validationResult = validator.Validate("", "aaa");
 
             // Assert
             Assert.IsFalse(validationResult.IsCorrect);
@@ -45,7 +45,7 @@ namespace Project_Tests
         public void WhenFirstHasOnlySpacesShouldReturnEmptyFieldErrorMessage()
         {
             // Act
-            var validationResult = validator.Validate("      ", "aaa", "aaa@wp.pl");
+            var validationResult = validator.Validate("      ", "aaa");
 
             // Assert
             Assert.IsFalse(validationResult.IsCorrect);
@@ -56,7 +56,7 @@ namespace Project_Tests
         public void WhenFirstNameHas31CharsShouldReturnToLongErrorMessage()
         {
             // Act
-            var validationResult = validator.Validate("aaaaaaaaaabbbbbbbbbbcccccccccc1", "aaa", "aaaa@wp.pl");
+            var validationResult = validator.Validate("aaaaaaaaaabbbbbbbbbbcccccccccc1", "aaa");
 
             // Assert
             Assert.IsFalse(validationResult.IsCorrect);
@@ -67,7 +67,7 @@ namespace Project_Tests
         public void WhenFirstNameHasLessThan3CharactersShouldReturnTooShortError()
         {
             // Act
-            var validationResult = validator.Validate("aa", "aaaa", "aaaa@wp.pl");
+            var validationResult = validator.Validate("aa", "aaaa");
 
             // Assert
             Assert.IsFalse(validationResult.IsCorrect);
@@ -79,7 +79,7 @@ namespace Project_Tests
         public void WhenLastNameHas30CharsShouldReturnOk()
         {
             // Act
-            var validationResult = validator.Validate("aaa", "aaaaaaaaaabbbbbbbbbbcccccccccc", "aaaa@wp.pl");
+            var validationResult = validator.Validate("aaa", "aaaaaaaaaabbbbbbbbbbcccccccccc");
 
             // Assert
             Assert.IsTrue(validationResult.IsCorrect);
@@ -90,7 +90,7 @@ namespace Project_Tests
         public void WhenLastNameHas4CharactersShouldReturnOk()
         {
             // Act
-            var validationResult = validator.Validate("aaaa", "aaaa", "aaaa@wp.pl");
+            var validationResult = validator.Validate("aaaa", "aaaa");
 
             // Assert
             Assert.IsTrue(validationResult.IsCorrect);
@@ -101,7 +101,7 @@ namespace Project_Tests
         public void WhenLastNameIsEmptyShouldReturnEmptyFieldErrorMessage()
         {
             // Act
-            var validationResult = validator.Validate("aaaa", "", "aaaa@wp.pl");
+            var validationResult = validator.Validate("aaaa", "");
 
             // Assert
             Assert.IsFalse(validationResult.IsCorrect);
@@ -112,7 +112,7 @@ namespace Project_Tests
         public void WhenLastNameHasOnlySpacesShouldReturnEmptyFieldErrorMessage()
         {
             // Act
-            var validationResult = validator.Validate("aaaa", "    ", "aaaa@wp.pl");
+            var validationResult = validator.Validate("aaaa", "    ");
 
             // Assert
             Assert.IsFalse(validationResult.IsCorrect);
@@ -123,7 +123,7 @@ namespace Project_Tests
         public void WhenLastNameHas31CharsShouldReturnToLongErrorMessage()
         {
             // Act
-            var validationResult = validator.Validate("aaaa", "aaaaaaaaaabbbbbbbbbbcccccccccc1", "aaaa@wp.pl");
+            var validationResult = validator.Validate("aaaa", "aaaaaaaaaabbbbbbbbbbcccccccccc1");
 
             // Assert
             Assert.IsFalse(validationResult.IsCorrect);
@@ -134,78 +134,11 @@ namespace Project_Tests
         public void WhenLastNameHasLessThan3CharactersShouldReturnTooShortError()
         {
             // Act
-            var validationResult = validator.Validate("aaaa", "aa", "aaaa@wp.pl");
+            var validationResult = validator.Validate("aaaa", "aa");
 
             // Assert
             Assert.IsFalse(validationResult.IsCorrect);
             Assert.AreEqual("Last Name too short. Minimal lenght is equal 3", validationResult.ErrorMessage);
-        }
-
-        // Email tests
-        [Test]
-        public void WhenEmaileHas50CharsShouldReturnOk()
-        {
-            // Act
-            var validationResult = validator.Validate("aaaa", "aaaa", "aaaaaaaaaabbbbbbbbbbccccccccccddddddddddcccc@wp.pl");
-
-            // Assert
-            Assert.IsTrue(validationResult.IsCorrect);
-            Assert.AreEqual("", validationResult.ErrorMessage);
-        }
-
-        [Test]
-        public void WhenEmailHas10CharactersShouldReturnOk()
-        {
-            // Act
-            var validationResult = validator.Validate("aaaa", "aaaa", "aaaa@wp.pl");
-
-            // Assert
-            Assert.IsTrue(validationResult.IsCorrect);
-            Assert.AreEqual("", validationResult.ErrorMessage);
-        }
-
-        [Test]
-        public void WhenEmailIsEmptyShouldReturnEmptyFieldErrorMessage()
-        {
-            // Act
-            var validationResult = validator.Validate("aaa", "aaa", "");
-
-            // Assert
-            Assert.IsFalse(validationResult.IsCorrect);
-            Assert.AreEqual("Email cannot be empty", validationResult.ErrorMessage);
-        }
-
-        [Test]
-        public void WhenEmailHasOnlySpacesShouldReturnEmptyFieldErrorMessage()
-        {
-            // Act
-            var validationResult = validator.Validate("aaa", "aaa", "       ");
-
-            // Assert
-            Assert.IsFalse(validationResult.IsCorrect);
-            Assert.AreEqual("Email cannot be empty", validationResult.ErrorMessage);
-        }
-
-        [Test]
-        public void WhenEmailHas51CharsShouldReturnToLongErrorMessage()
-        {
-            // Act
-            var validationResult = validator.Validate("aaa", "aaa", "aaaaaaaaaabbbbbbbbbbccccccccccddddddddddcccc@wp.pl1");
-
-            // Assert
-            Assert.IsFalse(validationResult.IsCorrect);
-            Assert.AreEqual("Email cannot be longer then 50 chars", validationResult.ErrorMessage);
-        }
-
-        [Test]
-        public void WhenEmailHasLessThan10CharactersShouldReturnTooShortError()
-        {
-            // Act
-            var validationResult = validator.Validate("aaaa", "aaaa", "a@wp.pl");
-
-            // Assert
-            Assert.IsFalse(validationResult.IsCorrect);
-            Assert.AreEqual("Email too short. Minimal lenght is equal 10", validationResult.ErrorMessage);
         }
     }
 }

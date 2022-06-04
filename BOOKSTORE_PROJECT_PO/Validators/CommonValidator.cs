@@ -7,7 +7,6 @@
     }
     public class CommonValidator
     { 
-    
         protected ValidateResult ValidateInput(string text, string fieldName, int maxTextLenght, int minTextLenght)
         {
             if (text.Trim().Length == 0)
@@ -18,6 +17,7 @@
 
             if (text.Trim().Length < minTextLenght)
                 return new ValidateResult { ErrorMessage = $"{fieldName} too short. Minimal lenght is equal {minTextLenght}", IsCorrect = false};
+
 
             return new ValidateResult { ErrorMessage = "", IsCorrect = true  };
         }
