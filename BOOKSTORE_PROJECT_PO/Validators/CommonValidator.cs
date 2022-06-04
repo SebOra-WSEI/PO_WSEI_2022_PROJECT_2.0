@@ -18,6 +18,9 @@
             if (text.Trim().Length < minTextLenght)
                 return new ValidateResult { ErrorMessage = $"{fieldName} too short. Minimal lenght is equal {minTextLenght}", IsCorrect = false};
 
+            if(fieldName == "Email" && !text.Contains("@"))
+                return new ValidateResult { ErrorMessage = $"{fieldName} has incorrect syntax. Please provide correct email", IsCorrect = false };
+
 
             return new ValidateResult { ErrorMessage = "", IsCorrect = true  };
         }
