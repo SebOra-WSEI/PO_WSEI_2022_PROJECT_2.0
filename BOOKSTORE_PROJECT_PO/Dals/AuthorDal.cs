@@ -13,19 +13,20 @@ namespace BOOKSTORE_PROJECT_PO.Dals
         public IList<AuthorDalModelForSelector> getAuthorList =>
             db.Authors.Select(
                 author => new AuthorDalModelForSelector
-                { 
+                {
                     ID = author.ID,
-                    Name = author.FirstName + " " + author.LastName 
+                    Name = author.FirstName + " " + author.LastName
                 }).ToList();
 
         public IList<AuthorDalModel> getAuthorNameList =>
             db.Authors.Select(
                 author => new AuthorDalModel
                 {
-                    Author = author.FirstName + " " + author.LastName
+                    FirstName = author.FirstName,
+                    LastName = author.LastName,
                 }).ToList();
 
-        public void Add(string firstName, string lastName)
+        internal void Add(string firstName, string lastName)
         {
             var newAuthor = new Authors()
             {
@@ -34,6 +35,25 @@ namespace BOOKSTORE_PROJECT_PO.Dals
             };
 
             db.Authors.Add(newAuthor);
+            db.SaveChanges();
+        }
+
+        internal void Delete(string lastName)
+        {
+            var authorToDelete =
+                db.Authors
+                .Where(auth => auth.LastName == lastName)
+                .Select(aut => aut)
+                .Single();
+            db.Books
+               .Where(book => book.AuthorId == authorToDelete.ID)
+               .ToList()
+               .ForEach(x =>
+               {
+                   x.AuthorId = null;
+               });
+
+            db.Authors.Remove(authorToDelete);
             db.SaveChanges();
         }
     }
