@@ -15,7 +15,7 @@ namespace BOOKSTORE_PROJECT_PO.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public int OrderQuantity { get; set; }
-        public int CityId { get; set; }
+        public Nullable<int> CityId { get; set; }
     
         public virtual ICollection<Books> Books { get; set; }
         public virtual Cities Cities { get; set; }

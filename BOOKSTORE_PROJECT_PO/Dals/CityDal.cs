@@ -43,6 +43,13 @@ namespace BOOKSTORE_PROJECT_PO
               .Where(cty => cty.CityName == city)
               .Select(cty => cty)
               .FirstOrDefault();
+            db.Customers
+               .Where(cus => cus.CityId == cityToDelete.ID)
+               .ToList()
+               .ForEach(x =>
+               {
+                   x.CityId = null;
+               });
 
             db.Cities.Remove(cityToDelete);
             db.SaveChanges();
