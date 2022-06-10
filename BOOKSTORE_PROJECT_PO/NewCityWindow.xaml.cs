@@ -53,6 +53,8 @@ namespace BOOKSTORE_PROJECT_PO
                         var city = (CityDalModel)this.gridCities.SelectedItems[0];
                         cityToRemove = city.City;
 
+                        this.cityToDelete.Text = city.City;
+
                     }
                 }
                 catch (InvalidCastException) { }
@@ -63,6 +65,7 @@ namespace BOOKSTORE_PROJECT_PO
         {
             cityDal.Delete(cityToRemove);
             LoadCityData();
+            this.cityToDelete.Text = "";
         }
     }
 }

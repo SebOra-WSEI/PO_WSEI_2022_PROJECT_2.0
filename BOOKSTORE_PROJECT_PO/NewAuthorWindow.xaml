@@ -28,11 +28,11 @@
         <Grid>
             <WrapPanel>
                 <Label Content="First Name:" HorizontalAlignment="Left" Margin="230,60,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="18"/>
-                <TextBox x:Name="authorNameUpdate" HorizontalAlignment="Left" Margin="2,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
+                <TextBox IsEnabled="False" x:Name="authorNameUpdate" HorizontalAlignment="Left" Margin="2,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Content="Last Name:" HorizontalAlignment="Left" Margin="230,85,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="18"/>
-                <TextBox x:Name="authorLastNameUpdate" HorizontalAlignment="Left" Margin="4,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
+                <TextBox IsEnabled="False" x:Name="authorLastNameUpdate" HorizontalAlignment="Left" Margin="4,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
             </WrapPanel>
             <WrapPanel>
                 <Button Click="BtnDeleteAuthor" Content="Delete Author" HorizontalAlignment="Left" Margin="285,120,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>

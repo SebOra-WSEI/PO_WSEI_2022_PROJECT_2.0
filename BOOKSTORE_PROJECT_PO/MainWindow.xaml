@@ -16,7 +16,7 @@
             <Button x:Name="btnDisplayStatus" Click="BtnStatusWindow" Content="Display Status" HorizontalAlignment="Left" Width="120" Margin="15,75,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
         <WrapPanel>
-            <Button Content="Load Data" Click="BtnLoadData" HorizontalAlignment="Left" Margin="10,210,0,0" Width="95" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+            <Button Content="Refresh Data" Click="BtnLoadData" HorizontalAlignment="Left" Margin="10,210,0,0" Width="95" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
         </WrapPanel>
         <Grid>
             <DataGrid x:Name="gridBooks"  d:ItemsSource="{d:SampleData ItemCount=15}" ColumnWidth="*" Margin="5,240,5,5" Height="247" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="13" FontFamily="Times New Roman" Width="766"/>
