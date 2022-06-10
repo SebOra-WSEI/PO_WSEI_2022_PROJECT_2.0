@@ -2,6 +2,7 @@
 {
     internal class AuthorDalModel
     {
-        public string Author { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

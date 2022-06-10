@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using BOOKSTORE_PROJECT_PO.Dal_Models;
 using BOOKSTORE_PROJECT_PO.Dals;
 using BOOKSTORE_PROJECT_PO.Validators;
 
@@ -27,6 +28,8 @@ namespace BOOKSTORE_PROJECT_PO
         {
             this.authorName.Text = "";
             this.authorLastName.Text = "";
+            this.authorNameUpdate.Text = "";
+            this.authorLastNameUpdate.Text = "";
         }
 
         private void BtnAddAuthor(object sender, RoutedEventArgs e)
@@ -55,6 +58,35 @@ namespace BOOKSTORE_PROJECT_PO
 
             LoadAuthorData();
             clearInput();
+        }
+
+        protected string authorUpdateLastName;
+        private void gridAuthors_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (this.gridAuthors.SelectedIndex >= 0)
+            {
+                try
+                {
+                    if (this.gridAuthors.SelectedItems.Count >= 0)
+                    {
+                        var author = (AuthorDalModel)this.gridAuthors.SelectedItems[0];
+
+                        authorUpdateLastName = author.LastName;
+
+                        this.authorNameUpdate.Text = author.FirstName;
+                        this.authorLastNameUpdate.Text = author.LastName;
+
+                    }
+                }
+                catch (InvalidCastException) { }
+            }
+        }
+
+        private void BtnDeleteAuthor(object sender, RoutedEventArgs e)
+        {
+            authorDal.Delete(authorUpdateLastName);
+            clearInput();
+            LoadAuthorData();
         }
     }
 }
