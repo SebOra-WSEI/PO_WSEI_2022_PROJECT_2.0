@@ -3,14 +3,19 @@ using BOOKSTORE_PROJECT_PO.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace BOOKSTORE_PROJECT_PO.Dals
 {
+    /// <summary>
+    /// Data source for status
+    /// </summary>
     internal class StatusDal
     {
         private BookstoreDBEntities db = new BookstoreDBEntities();
 
-        public IList<StatusDalModelForSelector> getStatusList =>
+        /// <summary>
+        /// Fetching status information to include in a combobox
+        /// </summary>
+        public IList<StatusDalModelForSelector> getStatusForSelectorList =>
             db.Status.Select
             (
                 status => new StatusDalModelForSelector
@@ -19,6 +24,9 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                     Name = status.StatusName,
                 }).ToList();
 
+        /// <summary>
+        /// Fetching status name to include in a table
+        /// </summary>
         public IList<StatusDalModel> getCStatusList =>
            db.Status
                .Select(status => new StatusDalModel

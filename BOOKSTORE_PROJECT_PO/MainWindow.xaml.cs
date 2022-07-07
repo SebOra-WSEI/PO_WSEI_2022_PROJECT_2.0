@@ -1,11 +1,10 @@
 ﻿using BOOKSTORE_PROJECT_PO.Dals;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace BOOKSTORE_PROJECT_PO
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// This class includes events that open a specific window
     /// </summary>
     public partial class MainWindow : Window
     {

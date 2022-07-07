@@ -2,7 +2,10 @@
 
 namespace BOOKSTORE_PROJECT_PO.Dal_Models
 {
-    internal class BookDalModel
+    /// <summary>
+    /// Model created to display book in the table without ID property
+    /// </summary>
+    public class BookDalModel
     {
         public string Title { get; set; }
         public int PublishedYear { get; set; }

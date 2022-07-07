@@ -1,8 +1,11 @@
+using System;
+using System.Collections.Generic;
+
 namespace BOOKSTORE_PROJECT_PO.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+    /// <summary>
+    /// Customer model generated automatically based on a template
+    /// </summary>
     public partial class Customers
     {
         public Customers()

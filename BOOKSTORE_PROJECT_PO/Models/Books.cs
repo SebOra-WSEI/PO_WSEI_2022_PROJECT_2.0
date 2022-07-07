@@ -1,7 +1,10 @@
 using System;
 
 namespace BOOKSTORE_PROJECT_PO.Models
-{   
+{
+    /// <summary>
+    /// Book model generated automatically based on a template
+    /// </summary>
     public partial class Books
     {
         public int ID { get; set; }

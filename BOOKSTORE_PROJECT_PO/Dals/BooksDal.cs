@@ -6,10 +6,16 @@ using System.Linq;
 
 namespace BOOKSTORE_PROJECT_PO.Dals
 {
-    internal class BooksDal
+    /// <summary>
+    /// Data source for book
+    /// </summary>
+    public class BooksDal
     {
         private BookstoreDBEntities db = new BookstoreDBEntities();
 
+        /// <summary>
+        /// Fetching specific information about a book to include in a table
+        /// </summary>
         public List<BookDalModel> getBooksList =>
             db.Books.Select(
                 book => new BookDalModel
@@ -22,6 +28,15 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                     LastCustomer = book.Customers.FirstName + " " + book.Customers.LastName,
                 }).ToList();
 
+        /// <summary>
+        /// Function to add a new book based on title, date qtl(quality), authorId, statusId and lastCustomerId params
+        /// </summary>
+        /// <param name="title">Book title</param>
+        /// <param name="date">Published year</param>
+        /// <param name="qtl">Quality</param>
+        /// <param name="authorId">Author identified by ID</param>
+        /// <param name="statusId">Status identified by ID</param>
+        /// <param name="lastCustomerId">Customer identified by ID</param>
         public void Add(string title, DateTime date, int qtl, int authorId, int statusId, int lastCustomerId)
         {
             var newBook = new Books()
@@ -38,6 +53,10 @@ namespace BOOKSTORE_PROJECT_PO.Dals
             db.SaveChanges();
         }
 
+        /// <summary>
+        /// Function to delete a specific book identified by title parameter
+        /// </summary>
+        /// <param name="title">Book title</param>
         public void Delete(string title)
         {
             var bookToDelete = db.Books
