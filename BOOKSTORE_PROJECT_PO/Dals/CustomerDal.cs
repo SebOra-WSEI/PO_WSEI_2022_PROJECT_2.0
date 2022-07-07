@@ -62,7 +62,7 @@ namespace BOOKSTORE_PROJECT_PO.Dals
         /// </summary>
         /// <param name="email">Email to indentify customer</param>
         /// <param name="emailToUpdate">A new email</param>
-        /// <param name="cityId">A new city idenfified by ID</param>
+        /// <param name="cityId">A new city identified by ID</param>
         public void Update(string email, string emailToUpdate, int cityId)
         {
             var customerToUpdate = db.Customers
