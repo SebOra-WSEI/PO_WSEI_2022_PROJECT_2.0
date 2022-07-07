@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using BOOKSTORE_PROJECT_PO.Dals;
+using System.Windows;
 
 namespace BOOKSTORE_PROJECT_PO
 {
@@ -7,9 +8,14 @@ namespace BOOKSTORE_PROJECT_PO
     /// </summary>
     public partial class StatusWindow : Window
     {
+        StatusDal statusDal = new StatusDal();
         public StatusWindow()
         {
             InitializeComponent();
+
+            gridStatus.ItemsSource = statusDal.getCStatusList;
         }
+
+        private void BtnBackToMainWindow(object sender, RoutedEventArgs e) => this.Close();
     }
 }

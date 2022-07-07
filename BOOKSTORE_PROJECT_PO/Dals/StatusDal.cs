@@ -18,5 +18,12 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                     ID = status.ID,
                     Name = status.StatusName,
                 }).ToList();
+
+        public IList<StatusDalModel> getCStatusList =>
+           db.Status
+               .Select(status => new StatusDalModel
+               {
+                   Status = status.StatusName,
+               }).ToList();
     }
 }

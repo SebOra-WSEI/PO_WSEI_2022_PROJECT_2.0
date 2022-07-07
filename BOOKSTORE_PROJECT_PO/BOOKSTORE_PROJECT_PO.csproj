@@ -87,6 +87,7 @@
     <Compile Include="Dal_Models\BookModels\BookDalModel.cs" />
     <Compile Include="Dal_Models\CityModels\CityDalModel.cs" />
     <Compile Include="Dal_Models\CustomerModels\CustomerDalModelForSelector.cs" />
+    <Compile Include="Dal_Models\StatusModels\StatusDalModel.cs" />
     <Compile Include="Dal_Models\StatusModels\StatusDalModelForSelector.cs" />
     <Compile Include="StatusWindow.xaml.cs">
       <DependentUpon>StatusWindow.xaml</DependentUpon>
