@@ -7,7 +7,7 @@ using BOOKSTORE_PROJECT_PO.Validators;
 namespace BOOKSTORE_PROJECT_PO
 {
     /// <summary>
-    /// Logika interakcji dla klasy NewAuthorWindow.xaml
+    /// This class includes all functionality to manipulate author data
     /// </summary>
     public partial class NewAuthorWindow : Window
     {

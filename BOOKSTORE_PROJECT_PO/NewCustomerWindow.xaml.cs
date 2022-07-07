@@ -7,7 +7,7 @@ using System.Windows;
 namespace BOOKSTORE_PROJECT_PO
 {
     /// <summary>
-    /// Logika interakcji dla klasy NewCustomerWindow.xaml
+    ///This class includes all functionality to manipulate customer data
     /// </summary>
     public partial class NewCustomerWindow : Window
     {

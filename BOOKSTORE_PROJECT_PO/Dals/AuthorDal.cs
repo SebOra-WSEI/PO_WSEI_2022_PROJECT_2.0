@@ -6,10 +6,16 @@ using System.Linq;
 
 namespace BOOKSTORE_PROJECT_PO.Dals
 {
-    internal class AuthorDal
+    /// <summary>
+    /// Data source for author
+    /// </summary>
+    public class AuthorDal
     {
         private BookstoreDBEntities db = new BookstoreDBEntities();
 
+        /// <summary>
+        /// Fetching author information to include in a combobox
+        /// </summary>
         public IList<AuthorDalModelForSelector> getAuthorList =>
             db.Authors.Select(
                 author => new AuthorDalModelForSelector
@@ -18,6 +24,9 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                     Name = author.FirstName + " " + author.LastName
                 }).ToList();
 
+        /// <summary>
+        /// Fetching specific information about a author to include in a table
+        /// </summary>
         public IList<AuthorDalModel> getAuthorNameList =>
             db.Authors.Select(
                 author => new AuthorDalModel
@@ -26,7 +35,12 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                     LastName = author.LastName,
                 }).ToList();
 
-        internal void Add(string firstName, string lastName)
+        /// <summary>
+        /// Function to add a new autor based on firstName and lastName params
+        /// </summary>
+        /// <param name="firstName">Author first name</param>
+        /// <param name="lastName">Author last name</param>
+        public void Add(string firstName, string lastName)
         {
             var newAuthor = new Authors()
             {
@@ -38,7 +52,11 @@ namespace BOOKSTORE_PROJECT_PO.Dals
             db.SaveChanges();
         }
 
-        internal void Delete(string lastName)
+        /// <summary>
+        /// Function to delete a specific author identified by lastName parameter
+        /// </summary>
+        /// <param name="lastName">Author last name</param>
+        public void Delete(string lastName)
         {
             var authorToDelete =
                 db.Authors

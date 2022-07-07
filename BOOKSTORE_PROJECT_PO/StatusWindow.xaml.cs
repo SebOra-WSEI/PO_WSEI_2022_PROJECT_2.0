@@ -4,7 +4,7 @@ using System.Windows;
 namespace BOOKSTORE_PROJECT_PO
 {
     /// <summary>
-    /// Logika interakcji dla klasy StatusWindow.xaml
+    /// This class includes all functionality to manipulate status data
     /// </summary>
     public partial class StatusWindow : Window
     {

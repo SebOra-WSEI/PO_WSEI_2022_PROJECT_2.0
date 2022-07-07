@@ -6,10 +6,16 @@ using System.Linq;
 
 namespace BOOKSTORE_PROJECT_PO.Dals
 {
-    internal class CustomerDal
+    /// <summary>
+    /// Data source for customer
+    /// </summary>
+    public class CustomerDal
     {
         private BookstoreDBEntities db = new BookstoreDBEntities();
 
+        /// <summary>
+        /// Fetching specific information about a customer to include in a table
+        /// </summary>
         public IList<CustomerDalModel> getCustomerList =>
             db.Customers.Select(
                 customer => new CustomerDalModel
@@ -19,6 +25,9 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                     City = customer.Cities.CityName
                 }).ToList();
 
+        /// <summary>
+        /// Fetching customer information to include in a combobox
+        /// </summary>
         public IList<CustomerDalModelForSelector> getCustomerForSelecorList =>
             db.Customers.Select(
                 customer => new CustomerDalModelForSelector
@@ -27,7 +36,14 @@ namespace BOOKSTORE_PROJECT_PO.Dals
                     Name = customer.FirstName + " " + customer.LastName,
                 }).ToList();
 
-        internal void Add(string firstName, string lastName, string email, int cityId)
+        /// <summary>
+        /// Function to add a new city based on firstName, lastName, email, cityId params
+        /// </summary>
+        /// <param name="firstName">Customer name</param>
+        /// <param name="lastName">Customer last name</param>
+        /// <param name="email">Customer email</param>
+        /// <param name="cityId">City identified by ID</param>
+        public void Add(string firstName, string lastName, string email, int cityId)
         {
             var newCustomer = new Customers()
             {
@@ -41,7 +57,13 @@ namespace BOOKSTORE_PROJECT_PO.Dals
             db.SaveChanges();
         }
 
-        internal void Update(string email, string emailToUpdate, int cityId)
+        /// <summary>
+        /// Function to update customer email
+        /// </summary>
+        /// <param name="email">Email to indentify customer</param>
+        /// <param name="emailToUpdate">A new email</param>
+        /// <param name="cityId">A new city idenfified by ID</param>
+        public void Update(string email, string emailToUpdate, int cityId)
         {
             var customerToUpdate = db.Customers
                 .Where(cus => cus.Email == email)
@@ -57,7 +79,11 @@ namespace BOOKSTORE_PROJECT_PO.Dals
             db.SaveChanges();
         }
 
-        internal void Delete(string email)
+        /// <summary>
+        /// Function to delete a specific customer identified by email parameter
+        /// </summary>
+        /// <param name="email">Customer email</param>
+        public void Delete(string email)
         {
             var customerToDelete =
                 db.Customers

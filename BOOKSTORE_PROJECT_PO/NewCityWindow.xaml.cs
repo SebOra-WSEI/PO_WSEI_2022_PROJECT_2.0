@@ -5,7 +5,7 @@ using System.Windows;
 namespace BOOKSTORE_PROJECT_PO
 {
     /// <summary>
-    /// Logika interakcji dla klasy NewCityWindow.xaml
+    /// This class includes all functionality to manipulate city data
     /// </summary>
     public partial class NewCityWindow : Window
     {

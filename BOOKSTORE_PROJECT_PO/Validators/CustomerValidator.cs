@@ -2,6 +2,13 @@
 {
     public class CustomerValidator : CommonValidator
     {
+        /// <summary>
+        /// Function to validate input during adding a new customer
+        /// </summary>
+        /// <param name="firstName">Customer first name</param>
+        /// <param name="lastName">Customer last name</param>
+        /// <param name="email">Customer name</param>
+        /// <returns>Validation message and boolean value</returns>
         public ValidateResult Validate(string firstName, string lastName, string email)
         {
             var firstNameResult = this.ValidateInput(firstName, "First Name", 30, 3);

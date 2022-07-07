@@ -6,7 +6,7 @@ using System.Windows;
 namespace BOOKSTORE_PROJECT_PO
 {
     /// <summary>
-    /// Logika interakcji dla klasy NewBookWIndow.xaml
+    /// This class includes all functionality to manipulate book data
     /// </summary>
     public partial class NewBookWIndow : Window
     {
@@ -26,7 +26,7 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void LoadSelectorAuthorData() => this.comboBoxAuthor.ItemsSource = authorDal.getAuthorList;
 
-        private void LoadSelectorStatusData() => this.comboBoxStatus.ItemsSource = statusDal.getStatusList;
+        private void LoadSelectorStatusData() => this.comboBoxStatus.ItemsSource = statusDal.getStatusForSelectorList;
 
         private void LoadSelectorCustomerData() => this.comboBoxCustomer.ItemsSource = customerDal.getCustomerForSelecorList;
 
