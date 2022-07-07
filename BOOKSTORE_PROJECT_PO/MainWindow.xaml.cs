@@ -25,12 +25,10 @@ namespace BOOKSTORE_PROJECT_PO
 
         private void BtnNewAuthorWindow(object sender, RoutedEventArgs e) => new NewAuthorWindow().Show();
 
-        private void BtnStatusWindow(object sender, RoutedEventArgs e)
-        {
-
-        }
+        private void BtnStatusWindow(object sender, RoutedEventArgs e) => new StatusWindow().Show();
 
         private void LoadBooksData() => this.gridBooks.ItemsSource = bookDal.getBooksList;
+
         private void BtnLoadData(object sender, RoutedEventArgs e) => LoadBooksData();
     }
 }
