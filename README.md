@@ -1,6 +1,6 @@
 # PO WSEI 2022 PROJECT
 
-It is a simply desktop application in C#, that allows manipulating data.
+It is a simply desktop application in C#, that allows to manipulate data.
 
 Application is based on:
 * CRUD (Create, Read, Update, Delete) functionality,
